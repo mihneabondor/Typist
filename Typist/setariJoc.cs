@@ -43,5 +43,12 @@ namespace Typist
         {
             durataLabel.Text = durataSlider.Value.ToString() + " secunde";
         }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            interfataJocSingur f = new interfataJocSingur(durataSlider.Value, "hello");
+            f.ShowDialog();
+        }
     }
 }

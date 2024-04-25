@@ -70,7 +70,7 @@ namespace Typist
             this.numarCuvinteSlider.Name = "numarCuvinteSlider";
             this.numarCuvinteSlider.Size = new System.Drawing.Size(172, 45);
             this.numarCuvinteSlider.TabIndex = 2;
-            this.numarCuvinteSlider.Value = 5;
+            this.numarCuvinteSlider.Value = 10;
             this.numarCuvinteSlider.Scroll += new System.EventHandler(this.numarCuvinteSlider_Scroll);
             // 
             // label2
@@ -91,9 +91,9 @@ namespace Typist
             this.numarCuvinteLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.numarCuvinteLabel.Location = new System.Drawing.Point(419, 178);
             this.numarCuvinteLabel.Name = "numarCuvinteLabel";
-            this.numarCuvinteLabel.Size = new System.Drawing.Size(59, 16);
+            this.numarCuvinteLabel.Size = new System.Drawing.Size(66, 16);
             this.numarCuvinteLabel.TabIndex = 6;
-            this.numarCuvinteLabel.Text = "5 cuvinte";
+            this.numarCuvinteLabel.Text = "10 cuvinte";
             // 
             // durataLabel
             // 
@@ -212,6 +212,7 @@ namespace Typist
             this.startButton.TabIndex = 13;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // inapoiButton
             // 
