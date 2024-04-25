@@ -29,6 +29,7 @@ namespace Typist
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.singurButton = new System.Windows.Forms.Button();
@@ -37,10 +38,16 @@ namespace Typist
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.numeTextbox = new System.Windows.Forms.TextBox();
+            this.usernameTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataSet = new Typist.DataSet();
+            this.jucatoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jucatoriTableAdapter = new Typist.DataSetTableAdapters.JucatoriTableAdapter();
+            this.tableAdapterManager = new Typist.DataSetTableAdapters.TableAdapterManager();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jucatoriBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +103,7 @@ namespace Typist
             // 
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.numeTextbox);
+            this.groupBox2.Controls.Add(this.usernameTextbox);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox2.Location = new System.Drawing.Point(445, 152);
@@ -128,34 +135,60 @@ namespace Typist
             this.button3.TabIndex = 3;
             this.button3.Text = "Istoric jucator";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // numeTextbox
+            // usernameTextbox
             // 
-            this.numeTextbox.BackColor = System.Drawing.Color.Gold;
-            this.numeTextbox.Location = new System.Drawing.Point(6, 46);
-            this.numeTextbox.Name = "numeTextbox";
-            this.numeTextbox.Size = new System.Drawing.Size(221, 26);
-            this.numeTextbox.TabIndex = 5;
-            this.numeTextbox.Text = "Scrie...";
-            this.numeTextbox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.selectedNumeTextBox);
+            this.usernameTextbox.BackColor = System.Drawing.Color.Gold;
+            this.usernameTextbox.Location = new System.Drawing.Point(6, 46);
+            this.usernameTextbox.Name = "usernameTextbox";
+            this.usernameTextbox.Size = new System.Drawing.Size(221, 26);
+            this.usernameTextbox.TabIndex = 5;
+            this.usernameTextbox.Text = "Scrie...";
+            this.usernameTextbox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.selectedNumeTextBox);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(574, 425);
+            this.label2.Location = new System.Drawing.Point(590, 432);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(213, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Aplicatie creata de Bondor Mihnea";
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jucatoriBindingSource
+            // 
+            this.jucatoriBindingSource.DataMember = "Jucatori";
+            this.jucatoriBindingSource.DataSource = this.dataSet;
+            // 
+            // jucatoriTableAdapter
+            // 
+            this.jucatoriTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CuvinteTableAdapter = null;
+            this.tableAdapterManager.DetaliiTableAdapter = null;
+            this.tableAdapterManager.EvidentaTableAdapter = null;
+            this.tableAdapterManager.IntersectieTableAdapter = null;
+            this.tableAdapterManager.JocuriTableAdapter = null;
+            this.tableAdapterManager.JucatoriTableAdapter = this.jucatoriTableAdapter;
+            this.tableAdapterManager.UpdateOrder = Typist.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(821, 468);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -167,6 +200,8 @@ namespace Typist
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jucatoriBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,8 +216,12 @@ namespace Typist
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox numeTextbox;
+        private System.Windows.Forms.TextBox usernameTextbox;
         private System.Windows.Forms.Label label2;
+        private DataSet dataSet;
+        private System.Windows.Forms.BindingSource jucatoriBindingSource;
+        private DataSetTableAdapters.JucatoriTableAdapter jucatoriTableAdapter;
+        private DataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
 

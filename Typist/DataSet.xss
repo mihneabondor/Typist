@@ -11,10 +11,10 @@
     <Shape ID="DesignTable:Evidenta" ZOrder="9" X="422" Y="257" Height="134" Width="194" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:Intersectie" ZOrder="8" X="692" Y="482" Height="134" Width="205" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:Jocuri" ZOrder="7" X="691" Y="251" Height="172" Width="179" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:Jucatori" ZOrder="6" X="167" Y="250" Height="134" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:Jucatori" ZOrder="1" X="167" Y="250" Height="153" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:Jucatori_Evidenta" ZOrder="5" LineWidth="11">
+    <Connector ID="DesignRelation:Jucatori_Evidenta" ZOrder="6" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>358</X>
@@ -26,7 +26,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Jocuri_Evidenta" ZOrder="4" LineWidth="11">
+    <Connector ID="DesignRelation:Jocuri_Evidenta" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>691</X>
@@ -38,7 +38,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Jocuri_Detalii" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:Jocuri_Detalii" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>782</X>
@@ -50,7 +50,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Jocuri_Intersectie" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:Jocuri_Intersectie" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>774</X>
@@ -62,7 +62,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Cuvinte_Intersectie" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:Cuvinte_Intersectie" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>997</X>

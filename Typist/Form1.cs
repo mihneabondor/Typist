@@ -19,8 +19,8 @@ namespace Typist
 
         private void selectedNumeTextBox(object sender, MouseEventArgs e)
         {
-            if (numeTextbox.Text.CompareTo("Scrie...") == 0)
-                numeTextbox.Clear();
+            if (usernameTextbox.Text.CompareTo("Scrie...") == 0)
+                usernameTextbox.Clear();
         }
 
         private void closing(object sender, FormClosingEventArgs e)
@@ -33,6 +33,14 @@ namespace Typist
             this.Visible = false;
             setariJoc f = new setariJoc();
             f.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(!Database.checkUser(usernameTextbox.Text))
+            {
+                MessageBox.Show("Utilizator inexistent!");
+            }
         }
     }
 }
