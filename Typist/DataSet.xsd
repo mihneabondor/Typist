@@ -58,7 +58,7 @@ SELECT Id, Cuvant, Tip FROM Cuvinte WHERE (Id = @Id)</CommandText>
               <Mapping SourceColumn="Tip" DataSetColumn="Tip" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getNumberCount" Modifier="Public" Name="getNumberCount" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getNumberCount">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getNumberCount" Modifier="Public" Name="getNumberCount" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getNumberCount">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS Expr1
@@ -68,7 +68,7 @@ WHERE        (Tip = 'numar')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getPunctuationCount" Modifier="Public" Name="getPunctuationCount" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getPunctuationCount">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getPunctuationCount" Modifier="Public" Name="getPunctuationCount" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getPunctuationCount">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS Expr1
@@ -78,7 +78,7 @@ WHERE        (Tip = 'punctatie')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Cuvinte" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getType" Modifier="Public" Name="getType" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getType">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Cuvinte" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getType" Modifier="Public" Name="getType" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getType">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Tip
@@ -90,7 +90,7 @@ WHERE        (Id = @id)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getWordCount" Modifier="Public" Name="getWordCount" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getWordCount">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getWordCount" Modifier="Public" Name="getWordCount" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getWordCount">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS Expr1
@@ -107,42 +107,49 @@ WHERE        (Tip = 'cuvant')</CommandText>
               <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Detalii" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Detalii] WHERE (([Id] = @Original_Id) AND ([IdJoc] = @Original_IdJoc) AND ((@IsNull_IdCuvant = 1 AND [IdCuvant] IS NULL) OR ([IdCuvant] = @Original_IdCuvant)))</CommandText>
+                    <CommandText>DELETE FROM [Detalii] WHERE (([IdJoc] = @Original_IdJoc) AND ([Id] = @Original_Id) AND ([NrCuvinte] = @Original_NrCuvinte) AND ([NrGreseli] = @Original_NrGreseli) AND ([Secunda] = @Original_Secunda))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdJoc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IdCuvant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdCuvant" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdCuvant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdCuvant" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NrCuvinte" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NrCuvinte" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NrGreseli" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NrGreseli" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Secunda" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Secunda" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Detalii] ([IdJoc], [IdCuvant]) VALUES (@IdJoc, @IdCuvant);
-SELECT Id, IdJoc, IdCuvant FROM Detalii WHERE (Id = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Detalii] ([IdJoc], [NrCuvinte], [NrGreseli], [Secunda]) VALUES (@IdJoc, @NrCuvinte, @NrGreseli, @Secunda);
+SELECT IdJoc, Id, NrCuvinte, NrGreseli, Secunda FROM Detalii WHERE (Id = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IdJoc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IdCuvant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdCuvant" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NrCuvinte" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NrCuvinte" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NrGreseli" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NrGreseli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Secunda" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Secunda" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Id, IdJoc, IdCuvant FROM dbo.Detalii</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdJoc, Id, NrCuvinte, NrGreseli, Secunda
+FROM            Detalii</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Detalii] SET [IdJoc] = @IdJoc, [IdCuvant] = @IdCuvant WHERE (([Id] = @Original_Id) AND ([IdJoc] = @Original_IdJoc) AND ((@IsNull_IdCuvant = 1 AND [IdCuvant] IS NULL) OR ([IdCuvant] = @Original_IdCuvant)));
-SELECT Id, IdJoc, IdCuvant FROM Detalii WHERE (Id = @Id)</CommandText>
+                    <CommandText>UPDATE [Detalii] SET [IdJoc] = @IdJoc, [NrCuvinte] = @NrCuvinte, [NrGreseli] = @NrGreseli, [Secunda] = @Secunda WHERE (([IdJoc] = @Original_IdJoc) AND ([Id] = @Original_Id) AND ([NrCuvinte] = @Original_NrCuvinte) AND ([NrGreseli] = @Original_NrGreseli) AND ([Secunda] = @Original_Secunda));
+SELECT IdJoc, Id, NrCuvinte, NrGreseli, Secunda FROM Detalii WHERE (Id = @Id)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IdJoc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IdCuvant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdCuvant" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NrCuvinte" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NrCuvinte" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NrGreseli" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NrGreseli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Secunda" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Secunda" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdJoc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IdCuvant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdCuvant" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdCuvant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdCuvant" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NrCuvinte" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NrCuvinte" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NrGreseli" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NrGreseli" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Secunda" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Secunda" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="Id" ColumnName="Id" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
@@ -152,9 +159,123 @@ SELECT Id, IdJoc, IdCuvant FROM Detalii WHERE (Id = @Id)</CommandText>
             <Mappings>
               <Mapping SourceColumn="Id" DataSetColumn="Id" />
               <Mapping SourceColumn="IdJoc" DataSetColumn="IdJoc" />
-              <Mapping SourceColumn="IdCuvant" DataSetColumn="IdCuvant" />
+              <Mapping SourceColumn="IdCuvant" DataSetColumn="NrCuvinte" />
+              <Mapping SourceColumn="NrCuvinte" DataSetColumn="NrCuvinte" />
+              <Mapping SourceColumn="NrGreseli" DataSetColumn="NrGreseli" />
+              <Mapping SourceColumn="Secunda" DataSetColumn="Secunda" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="createDetail" Modifier="Public" Name="createDetail" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="createDetail">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Detalii
+                         (IdJoc, NrCuvinte, NrGreseli, Secunda)
+VALUES        (@IdJoc,@NrCuvinte,@NrGreseli,@Secunda); 
+SELECT IdJoc, Id, NrCuvinte, NrGreseli, Secunda FROM Detalii WHERE (Id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="IdJoc" ColumnName="IdJoc" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdJoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NrCuvinte" ColumnName="NrCuvinte" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NrCuvinte" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NrCuvinte" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NrGreseli" ColumnName="NrGreseli" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NrGreseli" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NrGreseli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Secunda" ColumnName="Secunda" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Secunda" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Secunda" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getAccuracy" Modifier="Public" Name="getAccuracy" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="getAccuracy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CAST
+                             ((SELECT        MAX(NrGreseli) AS Expr1
+                                 FROM            Detalii
+                                 WHERE        (IdJoc = @idjoc)) AS float) / CAST
+                             ((SELECT        MAX(NrCuvinte) AS Expr1
+                                 FROM            Detalii AS Detalii_2
+                                 WHERE        (IdJoc = @idjoc)) AS float) * 100 AS Expr1
+FROM            Detalii AS Detalii_1</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idjoc" ColumnName="IdJoc" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idjoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Detalii" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getGraphDataMistakes" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="getGraphDataMistakes" GetMethodModifier="Public" GetMethodName="GetDataBy3" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getGraphDataMistakes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        NrGreseli, Secunda
+FROM            Detalii
+WHERE        (IdJoc = @idjoc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idjoc" ColumnName="IdJoc" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idjoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Detalii" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getGraphDataWords" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="getGraphDataWords" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getGraphDataWords">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Secunda, NrCuvinte
+FROM            Detalii
+WHERE        (IdJoc = @idjoc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idjoc" ColumnName="IdJoc" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idjoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getMaxMistakes" Modifier="Public" Name="getMaxMistakes" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="getMaxMistakes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(NrGreseli) AS Expr1
+FROM            Detalii
+WHERE        (IdJoc = @idJoc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idJoc" ColumnName="IdJoc" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idJoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getMaxSecond" Modifier="Public" Name="getMaxSecond" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="getMaxSecond">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(Secunda) AS Expr1
+FROM            Detalii
+WHERE        (IdJoc = @idjoc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idjoc" ColumnName="IdJoc" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idjoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getMaxWords" Modifier="Public" Name="getMaxWords" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="getMaxWords">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(NrCuvinte) AS Expr1
+FROM            Detalii
+WHERE        (IdJoc = @idjoc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idjoc" ColumnName="IdJoc" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idjoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getWPM" Modifier="Public" Name="getWPM" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getWPM">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FLOOR(CAST
+                             ((SELECT        MAX(NrCuvinte) AS Expr1
+                                 FROM            Detalii
+                                 WHERE        (IdJoc = @idjoc)) AS FLOAT) * 60 / CAST
+                             ((SELECT        MAX(Secunda) AS Expr1
+                                 FROM            Detalii AS Detalii_3
+                                 WHERE        (IdJoc = @idjoc)) AS FLOAT)) AS Expr1
+FROM            Detalii AS Detalii_1</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idjoc" ColumnName="IdJoc" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Detalii" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idjoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJoc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EvidentaTableAdapter" GeneratorDataComponentClassName="EvidentaTableAdapter" Name="Evidenta" UserDataComponentName="EvidentaTableAdapter">
             <MainSource>
@@ -374,12 +495,48 @@ SELECT Id, Punctaj, Timp, ModJoc, Data FROM Jocuri WHERE (Id = SCOPE_IDENTITY())
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Jocuri" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getGameMode" Modifier="Public" Name="getGameMode" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getGameMode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ModJoc
+FROM            Jocuri
+WHERE        (Id = @idjoc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idjoc" ColumnName="Id" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Jocuri" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idjoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Jocuri" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getGameOptions" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="getGameOptions" GetMethodModifier="Public" GetMethodName="GetDataBy3" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getGameOptions">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Timp, ModJoc
+FROM            Jocuri
+WHERE        (id = @idjoc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idjoc" ColumnName="Id" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Jocuri" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idjoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getLatestGameId" Modifier="Public" Name="getLatestGameId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getLatestGameId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(Id) AS Expr1
 FROM            Jocuri</CommandText>
                     <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Jocuri" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getTime" Modifier="Public" Name="getTime" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="getTime">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Timp
+FROM            Jocuri
+WHERE        (Id = @idJoc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idJoc" ColumnName="Id" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Jocuri" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idJoc" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -497,7 +654,9 @@ WHERE        (Username = @username)</CommandText>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
               <xs:element name="IdJoc" msprop:Generator_ColumnPropNameInTable="IdJocColumn" msprop:Generator_ColumnPropNameInRow="IdJoc" msprop:Generator_UserColumnName="IdJoc" msprop:Generator_ColumnVarNameInTable="columnIdJoc" type="xs:int" />
-              <xs:element name="IdCuvant" msprop:Generator_ColumnPropNameInTable="IdCuvantColumn" msprop:Generator_ColumnPropNameInRow="IdCuvant" msprop:Generator_UserColumnName="IdCuvant" msprop:Generator_ColumnVarNameInTable="columnIdCuvant" type="xs:int" minOccurs="0" />
+              <xs:element name="NrCuvinte" msprop:Generator_ColumnPropNameInTable="NrCuvinteColumn" msprop:Generator_ColumnPropNameInRow="NrCuvinte" msprop:Generator_UserColumnName="NrCuvinte" msprop:Generator_ColumnVarNameInTable="columnNrCuvinte" type="xs:int" />
+              <xs:element name="NrGreseli" msprop:Generator_UserColumnName="NrGreseli" msprop:Generator_ColumnPropNameInTable="NrGreseliColumn" msprop:Generator_ColumnPropNameInRow="NrGreseli" msprop:Generator_ColumnVarNameInTable="columnNrGreseli" type="xs:int" />
+              <xs:element name="Secunda" msprop:Generator_UserColumnName="Secunda" msprop:Generator_ColumnPropNameInTable="SecundaColumn" msprop:Generator_ColumnPropNameInRow="Secunda" msprop:Generator_ColumnVarNameInTable="columnSecunda" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -580,11 +739,11 @@ WHERE        (Username = @username)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Jucatori_Evidenta" msdata:parent="Jucatori" msdata:child="Evidenta" msdata:parentkey="Id" msdata:childkey="IdJucator" msprop:Generator_UserParentTable="Jucatori" msprop:Generator_UserChildTable="Evidenta" msprop:Generator_RelationVarName="relationJucatori_Evidenta" msprop:Generator_ChildPropName="GetEvidentaRows" msprop:Generator_ParentPropName="JucatoriRow" msprop:Generator_UserRelationName="Jucatori_Evidenta" />
-      <msdata:Relationship name="Jocuri_Evidenta" msdata:parent="Jocuri" msdata:child="Evidenta" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Evidenta" msprop:Generator_RelationVarName="relationJocuri_Evidenta" msprop:Generator_ChildPropName="GetEvidentaRows" msprop:Generator_ParentPropName="JocuriRow" msprop:Generator_UserRelationName="Jocuri_Evidenta" />
-      <msdata:Relationship name="Jocuri_Detalii" msdata:parent="Jocuri" msdata:child="Detalii" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Detalii" msprop:Generator_RelationVarName="relationJocuri_Detalii" msprop:Generator_ChildPropName="GetDetaliiRows" msprop:Generator_ParentPropName="JocuriRow" msprop:Generator_UserRelationName="Jocuri_Detalii" />
-      <msdata:Relationship name="Jocuri_Intersectie" msdata:parent="Jocuri" msdata:child="Intersectie" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Intersectie" msprop:Generator_RelationVarName="relationJocuri_Intersectie" msprop:Generator_ChildPropName="GetIntersectieRows" msprop:Generator_ParentPropName="JocuriRow" msprop:Generator_UserRelationName="Jocuri_Intersectie" />
-      <msdata:Relationship name="Cuvinte_Intersectie" msdata:parent="Cuvinte" msdata:child="Intersectie" msdata:parentkey="Id" msdata:childkey="IdCuvant" msprop:Generator_UserParentTable="Cuvinte" msprop:Generator_UserChildTable="Intersectie" msprop:Generator_RelationVarName="relationCuvinte_Intersectie" msprop:Generator_ChildPropName="GetIntersectieRows" msprop:Generator_UserRelationName="Cuvinte_Intersectie" msprop:Generator_ParentPropName="CuvinteRow" />
+      <msdata:Relationship name="Jucatori_Evidenta" msdata:parent="Jucatori" msdata:child="Evidenta" msdata:parentkey="Id" msdata:childkey="IdJucator" msprop:Generator_UserParentTable="Jucatori" msprop:Generator_UserChildTable="Evidenta" msprop:Generator_RelationVarName="relationJucatori_Evidenta" msprop:Generator_ChildPropName="GetEvidentaRows" msprop:Generator_UserRelationName="Jucatori_Evidenta" msprop:Generator_ParentPropName="JucatoriRow" />
+      <msdata:Relationship name="Jocuri_Evidenta" msdata:parent="Jocuri" msdata:child="Evidenta" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Evidenta" msprop:Generator_RelationVarName="relationJocuri_Evidenta" msprop:Generator_ChildPropName="GetEvidentaRows" msprop:Generator_UserRelationName="Jocuri_Evidenta" msprop:Generator_ParentPropName="JocuriRow" />
+      <msdata:Relationship name="Jocuri_Detalii" msdata:parent="Jocuri" msdata:child="Detalii" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Detalii" msprop:Generator_RelationVarName="relationJocuri_Detalii" msprop:Generator_ChildPropName="GetDetaliiRows" msprop:Generator_UserRelationName="Jocuri_Detalii" msprop:Generator_ParentPropName="JocuriRow" />
+      <msdata:Relationship name="Jocuri_Intersectie" msdata:parent="Jocuri" msdata:child="Intersectie" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Intersectie" msprop:Generator_RelationVarName="relationJocuri_Intersectie" msprop:Generator_ChildPropName="GetIntersectieRows" msprop:Generator_UserRelationName="Jocuri_Intersectie" msprop:Generator_ParentPropName="JocuriRow" />
+      <msdata:Relationship name="Cuvinte_Intersectie" msdata:parent="Cuvinte" msdata:child="Intersectie" msdata:parentkey="Id" msdata:childkey="IdCuvant" msprop:Generator_UserParentTable="Cuvinte" msprop:Generator_UserChildTable="Intersectie" msprop:Generator_RelationVarName="relationCuvinte_Intersectie" msprop:Generator_ChildPropName="GetIntersectieRows" msprop:Generator_ParentPropName="CuvinteRow" msprop:Generator_UserRelationName="Cuvinte_Intersectie" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

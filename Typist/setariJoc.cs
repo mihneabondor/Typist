@@ -47,11 +47,15 @@ namespace Typist
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            Database.createGame(durataSlider.Value, "singur", numeUtilizator.Text, numarCuvinteSlider.Value, cuvinteCheckBox.Checked, numereCheckBox.Checked, punctuatieCheckBox.Checked);
-            
-            this.Visible = false;
-            interfataJocSingur f = new interfataJocSingur(durataSlider.Value, Database.composeText());
-            f.ShowDialog();
+            if (!numeUtilizator.Text.Contains('.') && numeUtilizator.Text.CompareTo("Scrie...") != 0 && numeUtilizator.Text.Trim() != "")
+            {
+                Database.createGame(durataSlider.Value, "singur", numeUtilizator.Text, numarCuvinteSlider.Value, cuvinteCheckBox.Checked, numereCheckBox.Checked, punctuatieCheckBox.Checked);
+
+                this.Visible = false;
+                interfataJocSingur f = new interfataJocSingur(durataSlider.Value, Database.composeText());
+                f.ShowDialog();
+            }
+            else MessageBox.Show("Nume de utilizator invalid! Nu poate fi gol si nu poate contine \'.\'!");
         }
 
         private void usernameTextboxLeave(object sender, EventArgs e)

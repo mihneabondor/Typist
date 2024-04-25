@@ -14,7 +14,7 @@ namespace Typist
     {
         public static DataSet ds;
 
-        public static DataSetTableAdapters.JucatoriTableAdapter Jucatori = new DataSetTableAdapters.JucatoriTableAdapter();
+        public static DataSetTableAdapters.JucatoriTableAdapter Jucatori;
         public static DataSetTableAdapters.EvidentaTableAdapter Evidenta;
         public static DataSetTableAdapters.JocuriTableAdapter Jocuri;
         public static DataSetTableAdapters.DetaliiTableAdapter Detalii;
@@ -26,6 +26,7 @@ namespace Typist
             ds = new DataSet();
             ds.EnforceConstraints = false;
 
+            Jucatori = new DataSetTableAdapters.JucatoriTableAdapter();
             Evidenta = new DataSetTableAdapters.EvidentaTableAdapter();
             Jocuri = new DataSetTableAdapters.JocuriTableAdapter();
             Detalii = new DataSetTableAdapters.DetaliiTableAdapter();
@@ -98,6 +99,67 @@ namespace Typist
             for (int i = 0; i < dt.Rows.Count; i++)
                 rez += dt.Rows[i]["cuvant"].ToString().Trim() + ' ';
             return rez;
+        }
+
+        public static void createDetail(int nrCuvinte, int nrGreseli, int secunda)
+        {
+            int id = Convert.ToInt32(Jocuri.getLatestGameId());
+            Detalii.createDetail(id, nrCuvinte, nrGreseli, secunda);
+        }
+
+        public static bool singlePlayerGame()
+        {
+            return Jocuri.getGameMode(Convert.ToInt32(Jocuri.getLatestGameId())).ToString().Trim().CompareTo("singur") == 0;
+        }
+
+        public static DataTable getWordDataForChart()
+        {
+            Detalii.getGraphDataWords(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId()));
+            return ds.Detalii;
+        }
+
+        public static DataTable getMistakeDataForChart()
+        {
+            Detalii.getGraphDataMistakes(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId()));
+            return ds.Detalii;
+        }
+
+        public static int getWPM()
+        {
+            return Convert.ToInt32(Detalii.getWPM(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+        }
+
+        public static int getAccuracy()
+        {
+            return Convert.ToInt32(Detalii.getAccuracy(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+        }
+
+        public static string getGameOptionsString()
+        {
+            Jocuri.getGameOptions(ds.Jocuri, Convert.ToInt32(Jocuri.getLatestGameId().ToString()));
+            DataTable dt = ds.Jocuri;
+
+            return dt.Rows[0]["ModJoc"].ToString().Trim() + ' ' + dt.Rows[0]["timp"].ToString().Trim() + 's';
+        }
+
+        public static int getMaxWords()
+        {
+            return Convert.ToInt32(Detalii.getMaxWords(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+        }
+
+        public static int getMaxMistakes()
+        {
+            return Convert.ToInt32(Detalii.getMaxMistakes(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+        }
+
+        public static int getMaxTime()
+        {
+            return Convert.ToInt32(Detalii.getMaxSecond(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+        }
+
+        public static int getTime()
+        {
+            return Convert.ToInt32(Jocuri.getTime(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
         }
     }
 }
