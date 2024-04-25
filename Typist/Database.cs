@@ -107,59 +107,79 @@ namespace Typist
             Detalii.createDetail(id, nrCuvinte, nrGreseli, secunda);
         }
 
-        public static bool singlePlayerGame()
+        public static bool singlePlayerGame(int id = -1)
         {
-            return Jocuri.getGameMode(Convert.ToInt32(Jocuri.getLatestGameId())).ToString().Trim().CompareTo("singur") == 0;
+            if(id == -1)
+                return Jocuri.getGameMode(Convert.ToInt32(Jocuri.getLatestGameId())).ToString().Trim().CompareTo("singur") == 0;
+            return Jocuri.getGameMode(id).ToString().Trim().CompareTo("singur") == 0;
         }
 
-        public static DataTable getWordDataForChart()
+        public static DataTable getWordDataForChart(int id = -1)
         {
-            Detalii.getGraphDataWords(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId()));
+            if(id == -1)
+                Detalii.getGraphDataWords(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId()));
+            else Detalii.getGraphDataWords(ds.Detalii, id);
             return ds.Detalii;
         }
 
-        public static DataTable getMistakeDataForChart()
+        public static DataTable getMistakeDataForChart(int id = -1)
         {
-            Detalii.getGraphDataMistakes(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId()));
+            if(id == -1)
+                Detalii.getGraphDataMistakes(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId()));
+            else Detalii.getGraphDataMistakes(ds.Detalii, id);
             return ds.Detalii;
         }
 
-        public static int getWPM()
+        public static int getWPM(int id = -1)
         {
-            return Convert.ToInt32(Detalii.getWPM(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            if(id == -1)
+                return Convert.ToInt32(Detalii.getWPM(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            else return Convert.ToInt32(Detalii.getWPM(id));
         }
 
-        public static int getAccuracy()
+        public static int getAccuracy(int id = -1)
         {
-            return Convert.ToInt32(Detalii.getAccuracy(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            if(id == -1)
+                return Convert.ToInt32(Detalii.getAccuracy(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            return Convert.ToInt32(Detalii.getAccuracy(id));
         }
 
-        public static string getGameOptionsString()
+        public static string getGameOptionsString(int id = -1)
         {
-            Jocuri.getGameOptions(ds.Jocuri, Convert.ToInt32(Jocuri.getLatestGameId().ToString()));
+            if(id == -1)
+                Jocuri.getGameOptions(ds.Jocuri, Convert.ToInt32(Jocuri.getLatestGameId().ToString()));
+            else Jocuri.getGameOptions(ds.Jocuri, id);
             DataTable dt = ds.Jocuri;
 
             return dt.Rows[0]["ModJoc"].ToString().Trim() + ' ' + dt.Rows[0]["timp"].ToString().Trim() + 's';
         }
 
-        public static int getMaxWords()
+        public static int getMaxWords(int id = -1)
         {
-            return Convert.ToInt32(Detalii.getMaxWords(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            if(id == -1)
+                return Convert.ToInt32(Detalii.getMaxWords(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            return Convert.ToInt32(Detalii.getMaxWords(id));
         }
 
-        public static int getMaxMistakes()
+        public static int getMaxMistakes(int id = -1)
         {
-            return Convert.ToInt32(Detalii.getMaxMistakes(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            if(id == -1)
+                return Convert.ToInt32(Detalii.getMaxMistakes(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            return Convert.ToInt32(Detalii.getMaxMistakes(Convert.ToInt32(id)));
         }
 
-        public static int getMaxTime()
+        public static int getMaxTime(int id = -1)
         {
-            return Convert.ToInt32(Detalii.getMaxSecond(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            if(id == -1)
+                return Convert.ToInt32(Detalii.getMaxSecond(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            return Convert.ToInt32(Detalii.getMaxSecond(id));
         }
 
-        public static int getTime()
+        public static int getTime(int id = -1)
         {
-            return Convert.ToInt32(Jocuri.getTime(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            if(id == -1)
+                return Convert.ToInt32(Jocuri.getTime(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
+            return Convert.ToInt32(Jocuri.getTime(id));
         }
     }
 }
