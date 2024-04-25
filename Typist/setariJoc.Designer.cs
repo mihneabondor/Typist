@@ -64,7 +64,7 @@ namespace Typist
             // 
             // numarCuvinteSlider
             // 
-            this.numarCuvinteSlider.Location = new System.Drawing.Point(422, 149);
+            this.numarCuvinteSlider.Location = new System.Drawing.Point(422, 137);
             this.numarCuvinteSlider.Maximum = 20;
             this.numarCuvinteSlider.Minimum = 5;
             this.numarCuvinteSlider.Name = "numarCuvinteSlider";
@@ -78,7 +78,7 @@ namespace Typist
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(419, 128);
+            this.label2.Location = new System.Drawing.Point(419, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 18);
             this.label2.TabIndex = 5;
@@ -89,7 +89,7 @@ namespace Typist
             this.numarCuvinteLabel.AutoSize = true;
             this.numarCuvinteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numarCuvinteLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.numarCuvinteLabel.Location = new System.Drawing.Point(419, 178);
+            this.numarCuvinteLabel.Location = new System.Drawing.Point(419, 166);
             this.numarCuvinteLabel.Name = "numarCuvinteLabel";
             this.numarCuvinteLabel.Size = new System.Drawing.Size(66, 16);
             this.numarCuvinteLabel.TabIndex = 6;
@@ -100,7 +100,7 @@ namespace Typist
             this.durataLabel.AutoSize = true;
             this.durataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.durataLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.durataLabel.Location = new System.Drawing.Point(419, 279);
+            this.durataLabel.Location = new System.Drawing.Point(419, 302);
             this.durataLabel.Name = "durataLabel";
             this.durataLabel.Size = new System.Drawing.Size(76, 16);
             this.durataLabel.TabIndex = 9;
@@ -111,7 +111,7 @@ namespace Typist
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gold;
-            this.label5.Location = new System.Drawing.Point(419, 229);
+            this.label5.Location = new System.Drawing.Point(419, 252);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 18);
             this.label5.TabIndex = 8;
@@ -119,7 +119,7 @@ namespace Typist
             // 
             // durataSlider
             // 
-            this.durataSlider.Location = new System.Drawing.Point(422, 250);
+            this.durataSlider.Location = new System.Drawing.Point(422, 273);
             this.durataSlider.Maximum = 30;
             this.durataSlider.Minimum = 10;
             this.durataSlider.Name = "durataSlider";
@@ -135,7 +135,7 @@ namespace Typist
             this.groupBox1.Controls.Add(this.cuvinteCheckBox);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Gold;
-            this.groupBox1.Location = new System.Drawing.Point(213, 209);
+            this.groupBox1.Location = new System.Drawing.Point(213, 232);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(153, 100);
             this.groupBox1.TabIndex = 10;
@@ -183,7 +183,7 @@ namespace Typist
             // numeUtilizator
             // 
             this.numeUtilizator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numeUtilizator.Location = new System.Drawing.Point(213, 149);
+            this.numeUtilizator.Location = new System.Drawing.Point(213, 137);
             this.numeUtilizator.Name = "numeUtilizator";
             this.numeUtilizator.Size = new System.Drawing.Size(114, 22);
             this.numeUtilizator.TabIndex = 11;
@@ -195,7 +195,7 @@ namespace Typist
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gold;
-            this.label6.Location = new System.Drawing.Point(210, 128);
+            this.label6.Location = new System.Drawing.Point(210, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 18);
             this.label6.TabIndex = 12;
@@ -232,7 +232,7 @@ namespace Typist
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(210, 178);
+            this.label7.Location = new System.Drawing.Point(210, 166);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 16);
             this.label7.TabIndex = 15;

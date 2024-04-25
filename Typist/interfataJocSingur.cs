@@ -54,9 +54,12 @@ namespace Typist
                 }
             }
 
-            if (timp == -5) {
+            if (timp == -3) {
                 timer1.Stop();
-                MessageBox.Show("Vezi rezultatele");
+
+                this.Visible = false;
+                veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
+                veziRezultate.ShowDialog();
             }
         }
 
