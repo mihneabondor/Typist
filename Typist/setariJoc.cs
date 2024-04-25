@@ -12,6 +12,7 @@ namespace Typist
 {
     public partial class setariJoc : Form
     {
+        
         public setariJoc()
         {
             InitializeComponent();
@@ -46,9 +47,22 @@ namespace Typist
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            Database.createGame(durataSlider.Value, "singur", numeUtilizator.Text, numarCuvinteSlider.Value, cuvinteCheckBox.Checked, numereCheckBox.Checked, punctuatieCheckBox.Checked);
+            
             this.Visible = false;
-            interfataJocSingur f = new interfataJocSingur(durataSlider.Value, "hello");
+            interfataJocSingur f = new interfataJocSingur(durataSlider.Value, Database.composeText());
             f.ShowDialog();
+        }
+
+        private void usernameTextboxLeave(object sender, EventArgs e)
+        {
+            if (Database.checkUser(numeUtilizator.Text))
+                userStatusLabel.Text = "Cont gasit";
+            else
+            {
+                Database.createUser(numeUtilizator.Text);
+                userStatusLabel.Text = "Cont creat";
+            }
         }
     }
 }

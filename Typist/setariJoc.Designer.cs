@@ -45,7 +45,7 @@ namespace Typist
             this.label6 = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
             this.inapoiButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.userStatusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numarCuvinteSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.durataSlider)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -189,6 +189,7 @@ namespace Typist
             this.numeUtilizator.TabIndex = 11;
             this.numeUtilizator.Text = "Scrie...";
             this.numeUtilizator.MouseClick += new System.Windows.Forms.MouseEventHandler(this.numeUtilizatorTextboxSelected);
+            this.numeUtilizator.Leave += new System.EventHandler(this.usernameTextboxLeave);
             // 
             // label6
             // 
@@ -227,16 +228,16 @@ namespace Typist
             this.inapoiButton.UseVisualStyleBackColor = false;
             this.inapoiButton.Click += new System.EventHandler(this.inapoiButton_Click);
             // 
-            // label7
+            // userStatusLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(210, 166);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(133, 16);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Status cont: inexistent";
+            this.userStatusLabel.AutoSize = true;
+            this.userStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userStatusLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.userStatusLabel.Location = new System.Drawing.Point(210, 166);
+            this.userStatusLabel.Name = "userStatusLabel";
+            this.userStatusLabel.Size = new System.Drawing.Size(133, 16);
+            this.userStatusLabel.TabIndex = 15;
+            this.userStatusLabel.Text = "Status cont: inexistent";
             // 
             // setariJoc
             // 
@@ -244,7 +245,7 @@ namespace Typist
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.userStatusLabel);
             this.Controls.Add(this.inapoiButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.label6);
@@ -287,6 +288,6 @@ namespace Typist
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button inapoiButton;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label userStatusLabel;
     }
 }

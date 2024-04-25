@@ -47,7 +47,7 @@
             this.textbox.Size = new System.Drawing.Size(679, 213);
             this.textbox.TabIndex = 0;
             this.textbox.Text = "Hello world";
-            this.textbox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textFieldClicked);
+            this.textbox.TextChanged += new System.EventHandler(this.textbox_TextChanged);
             // 
             // timer1
             // 

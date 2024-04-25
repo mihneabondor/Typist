@@ -35,11 +35,6 @@ namespace Typist
         {
             Environment.Exit(0);
         }
-
-        private void textFieldClicked(object sender, MouseEventArgs e)
-        {
-            timer1.Start();
-        }
         
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -86,6 +81,11 @@ namespace Typist
                 textbox.Focus();
                 pauzaReincepeButton.Text = "Pauza";
             }
+        }
+
+        private void textbox_TextChanged(object sender, EventArgs e)
+        {
+            if (timp % 5 == 0) timer1.Start();
         }
     }
 }
