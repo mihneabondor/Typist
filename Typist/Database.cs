@@ -51,6 +51,22 @@ namespace Typist
             return Jucatori.getUser(username) != null;
         }
 
+        public static string getUser(int id)
+        {
+            return Jucatori.getUserByID(id).ToString().Trim();
+        }
+
+        public static int getUser(string username)
+        {
+            return Convert.ToInt32(Jucatori.getUserId(username));
+        }
+
+        public static DataTable getGames(int id)
+        {
+            Jocuri.getGames(ds.Jocuri, id);
+            return ds.Jocuri;
+        }
+
         public static void createUser(string username)
         {
             Jucatori.createUser(username);

@@ -13,6 +13,7 @@ namespace Typist
     public partial class veziRezultate : Form
     {
         bool rezultatePrieten = false;
+        int id = -1;
 
         public veziRezultate()
         {
@@ -26,11 +27,19 @@ namespace Typist
             veziRezultatePrieten.Visible = !Database.singlePlayerGame();
         }
 
+        public veziRezultate(int id)
+        {
+            this.id = id;
+            InitializeComponent();
+            veziRezultatePrieten.Visible = !Database.singlePlayerGame(id);
+        }
+
         private void closing(object sender, FormClosingEventArgs e)
         {
-            if(!rezultatePrieten)
+            this.Visible = false;
+
+            if (!rezultatePrieten && id == -1)
             {
-                this.Visible = false;
                 Form1 form = new Form1();
                 form.ShowDialog();
             }
@@ -40,7 +49,7 @@ namespace Typist
         {
             this.Visible = false;
 
-            if (!rezultatePrieten)
+            if (!rezultatePrieten && id == -1)
             {
                 Form1 form = new Form1();
                 form.ShowDialog();
@@ -55,18 +64,20 @@ namespace Typist
 
         private void veziRezultate_Load(object sender, EventArgs e)
         {
-            DataTable dt = Database.getWordDataForChart();
+            DataTable dt = Database.getWordDataForChart(id);
             for (int i = 0; i < dt.Rows.Count; i++) chart1.Series["Cuvinte"].Points.AddXY(Convert.ToInt32(dt.Rows[i]["Secunda"]), Convert.ToInt32(dt.Rows[i]["NrCuvinte"]));
 
-            dt = Database.getMistakeDataForChart();
-            for (int i = 0; i < dt.Rows.Count; i++) chart1.Series["Greseli"].Points.AddXY(Convert.ToInt32(dt.Rows[i]["Secunda"]), Convert.ToInt32(dt.Rows[i]["NrGreseli"]));
+            dt = Database.getMistakeDataForChart(id);
+            for (int i = 0; i < dt.Rows.Count; i++) 
+                if(Convert.ToInt32(dt.Rows[i]["NrGreseli"]) != 0)
+                    chart1.Series["Greseli"].Points.AddXY(Convert.ToInt32(dt.Rows[i]["Secunda"]), Convert.ToInt32(dt.Rows[i]["NrGreseli"]));
             
-            CPMLabel.Text = Database.getWPM().ToString();
-            accurayLabel.Text = Database.getAccuracy().ToString() + '%';
-            gameModeLabel.Text = Database.getGameOptionsString();
-            corecteLabel.Text = Database.getMaxWords().ToString();
-            greseliLabel.Text = Database.getMaxMistakes().ToString();
-            timeLabel.Text = Database.getMaxTime().ToString() + "s (din " + Database.getTime().ToString() + "s)"; 
+            CPMLabel.Text = Database.getWPM(id).ToString();
+            accurayLabel.Text = Database.getAccuracy(id).ToString() + '%';
+            gameModeLabel.Text = Database.getGameOptionsString(id);
+            corecteLabel.Text = Database.getMaxWords(id).ToString();
+            greseliLabel.Text = Database.getMaxMistakes(id).ToString();
+            timeLabel.Text = Database.getMaxTime(id).ToString() + "s (din " + Database.getTime().ToString() + "s)"; 
         }
     }
 }

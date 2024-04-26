@@ -119,7 +119,7 @@ namespace Typist
             }
 
             textbox.Select(0, index);
-            textbox.SelectionColor = Color.Red;
+            textbox.SelectionColor = Color.Orange;
             textbox.DeselectAll();
             textbox.Select(index, textbox.Text.Length);
             textbox.SelectionColor = Color.White;
@@ -127,6 +127,8 @@ namespace Typist
 
             nrCuvinte = nrCuvinteMaxim - text.Split(' ').Length + 1;
             nrGreseli = userText.Length;
+
+            userText = "";
             
             if(text.Length == 0){
                 MessageBox.Show("gata");

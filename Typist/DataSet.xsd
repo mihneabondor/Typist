@@ -181,7 +181,7 @@ SELECT IdJoc, Id, NrCuvinte, NrGreseli, Secunda FROM Detalii WHERE (Id = SCOPE_I
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getAccuracy" Modifier="Public" Name="getAccuracy" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="getAccuracy">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getAccuracy" Modifier="Public" Name="getAccuracy" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getAccuracy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CAST
@@ -210,7 +210,7 @@ WHERE        (IdJoc = @idjoc)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Detalii" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getGraphDataWords" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="getGraphDataWords" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getGraphDataWords">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Detalii" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getGraphDataWords" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy11" GeneratorSourceName="getGraphDataWords" GetMethodModifier="Public" GetMethodName="GetDataBy11" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="getGraphDataWords">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Secunda, NrCuvinte
@@ -222,7 +222,7 @@ WHERE        (IdJoc = @idjoc)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getMaxMistakes" Modifier="Public" Name="getMaxMistakes" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="getMaxMistakes">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getMaxMistakes" Modifier="Public" Name="getMaxMistakes" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getMaxMistakes">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(NrGreseli) AS Expr1
@@ -234,7 +234,7 @@ WHERE        (IdJoc = @idJoc)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getMaxSecond" Modifier="Public" Name="getMaxSecond" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="getMaxSecond">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getMaxSecond" Modifier="Public" Name="getMaxSecond" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="getMaxSecond">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(Secunda) AS Expr1
@@ -258,7 +258,7 @@ WHERE        (IdJoc = @idjoc)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getWPM" Modifier="Public" Name="getWPM" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getWPM">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getWPM" Modifier="Public" Name="getWPM" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="getWPM">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        FLOOR(CAST
@@ -495,7 +495,7 @@ SELECT Id, Punctaj, Timp, ModJoc, Data FROM Jocuri WHERE (Id = SCOPE_IDENTITY())
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Jocuri" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getGameMode" Modifier="Public" Name="getGameMode" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getGameMode">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Jocuri" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getGameMode" Modifier="Public" Name="getGameMode" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getGameMode">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ModJoc
@@ -519,7 +519,20 @@ WHERE        (id = @idjoc)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getLatestGameId" Modifier="Public" Name="getLatestGameId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getLatestGameId">
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Jocuri" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getGames" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy5" GeneratorSourceName="getGames" GetMethodModifier="Public" GetMethodName="GetDataBy5" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="getGames">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Jocuri.ModJoc, Jocuri.Data, Jocuri.Timp, Jocuri.Id
+FROM            Jocuri INNER JOIN
+                         Evidenta ON Jocuri.Id = Evidenta.Id
+WHERE        (Evidenta.IdJucator = @idJucator)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idJucator" ColumnName="IdJucator" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Evidenta" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idJucator" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdJucator" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getLatestGameId" Modifier="Public" Name="getLatestGameId" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getLatestGameId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(Id) AS Expr1
@@ -618,6 +631,18 @@ WHERE        (Username = @username)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Jucatori" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getUserByID" Modifier="Public" Name="getUserByID" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getUserByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Username
+FROM            Jucatori
+WHERE        (Id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="Id" DataSourceName="[C:\USERS\MIHNE\SOURCE\REPOS\TYPIST\TYPIST\DATABASE.MDF].dbo.Jucatori" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Jucatori" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getUserId" Modifier="Public" Name="getUserId" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getUserId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -655,8 +680,8 @@ WHERE        (Username = @username)</CommandText>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
               <xs:element name="IdJoc" msprop:Generator_ColumnPropNameInTable="IdJocColumn" msprop:Generator_ColumnPropNameInRow="IdJoc" msprop:Generator_UserColumnName="IdJoc" msprop:Generator_ColumnVarNameInTable="columnIdJoc" type="xs:int" />
               <xs:element name="NrCuvinte" msprop:Generator_ColumnPropNameInTable="NrCuvinteColumn" msprop:Generator_ColumnPropNameInRow="NrCuvinte" msprop:Generator_UserColumnName="NrCuvinte" msprop:Generator_ColumnVarNameInTable="columnNrCuvinte" type="xs:int" />
-              <xs:element name="NrGreseli" msprop:Generator_UserColumnName="NrGreseli" msprop:Generator_ColumnPropNameInTable="NrGreseliColumn" msprop:Generator_ColumnPropNameInRow="NrGreseli" msprop:Generator_ColumnVarNameInTable="columnNrGreseli" type="xs:int" />
-              <xs:element name="Secunda" msprop:Generator_UserColumnName="Secunda" msprop:Generator_ColumnPropNameInTable="SecundaColumn" msprop:Generator_ColumnPropNameInRow="Secunda" msprop:Generator_ColumnVarNameInTable="columnSecunda" type="xs:int" />
+              <xs:element name="NrGreseli" msprop:Generator_ColumnPropNameInTable="NrGreseliColumn" msprop:Generator_ColumnPropNameInRow="NrGreseli" msprop:Generator_UserColumnName="NrGreseli" msprop:Generator_ColumnVarNameInTable="columnNrGreseli" type="xs:int" />
+              <xs:element name="Secunda" msprop:Generator_ColumnPropNameInTable="SecundaColumn" msprop:Generator_ColumnPropNameInRow="Secunda" msprop:Generator_UserColumnName="Secunda" msprop:Generator_ColumnVarNameInTable="columnSecunda" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -739,11 +764,11 @@ WHERE        (Username = @username)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Jucatori_Evidenta" msdata:parent="Jucatori" msdata:child="Evidenta" msdata:parentkey="Id" msdata:childkey="IdJucator" msprop:Generator_UserParentTable="Jucatori" msprop:Generator_UserChildTable="Evidenta" msprop:Generator_RelationVarName="relationJucatori_Evidenta" msprop:Generator_ChildPropName="GetEvidentaRows" msprop:Generator_UserRelationName="Jucatori_Evidenta" msprop:Generator_ParentPropName="JucatoriRow" />
-      <msdata:Relationship name="Jocuri_Evidenta" msdata:parent="Jocuri" msdata:child="Evidenta" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Evidenta" msprop:Generator_RelationVarName="relationJocuri_Evidenta" msprop:Generator_ChildPropName="GetEvidentaRows" msprop:Generator_UserRelationName="Jocuri_Evidenta" msprop:Generator_ParentPropName="JocuriRow" />
-      <msdata:Relationship name="Jocuri_Detalii" msdata:parent="Jocuri" msdata:child="Detalii" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Detalii" msprop:Generator_RelationVarName="relationJocuri_Detalii" msprop:Generator_ChildPropName="GetDetaliiRows" msprop:Generator_UserRelationName="Jocuri_Detalii" msprop:Generator_ParentPropName="JocuriRow" />
-      <msdata:Relationship name="Jocuri_Intersectie" msdata:parent="Jocuri" msdata:child="Intersectie" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Intersectie" msprop:Generator_RelationVarName="relationJocuri_Intersectie" msprop:Generator_ChildPropName="GetIntersectieRows" msprop:Generator_UserRelationName="Jocuri_Intersectie" msprop:Generator_ParentPropName="JocuriRow" />
-      <msdata:Relationship name="Cuvinte_Intersectie" msdata:parent="Cuvinte" msdata:child="Intersectie" msdata:parentkey="Id" msdata:childkey="IdCuvant" msprop:Generator_UserParentTable="Cuvinte" msprop:Generator_UserChildTable="Intersectie" msprop:Generator_RelationVarName="relationCuvinte_Intersectie" msprop:Generator_ChildPropName="GetIntersectieRows" msprop:Generator_ParentPropName="CuvinteRow" msprop:Generator_UserRelationName="Cuvinte_Intersectie" />
+      <msdata:Relationship name="Jucatori_Evidenta" msdata:parent="Jucatori" msdata:child="Evidenta" msdata:parentkey="Id" msdata:childkey="IdJucator" msprop:Generator_UserParentTable="Jucatori" msprop:Generator_UserChildTable="Evidenta" msprop:Generator_RelationVarName="relationJucatori_Evidenta" msprop:Generator_ChildPropName="GetEvidentaRows" msprop:Generator_ParentPropName="JucatoriRow" msprop:Generator_UserRelationName="Jucatori_Evidenta" />
+      <msdata:Relationship name="Jocuri_Evidenta" msdata:parent="Jocuri" msdata:child="Evidenta" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Evidenta" msprop:Generator_RelationVarName="relationJocuri_Evidenta" msprop:Generator_ChildPropName="GetEvidentaRows" msprop:Generator_ParentPropName="JocuriRow" msprop:Generator_UserRelationName="Jocuri_Evidenta" />
+      <msdata:Relationship name="Jocuri_Detalii" msdata:parent="Jocuri" msdata:child="Detalii" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Detalii" msprop:Generator_RelationVarName="relationJocuri_Detalii" msprop:Generator_ChildPropName="GetDetaliiRows" msprop:Generator_ParentPropName="JocuriRow" msprop:Generator_UserRelationName="Jocuri_Detalii" />
+      <msdata:Relationship name="Jocuri_Intersectie" msdata:parent="Jocuri" msdata:child="Intersectie" msdata:parentkey="Id" msdata:childkey="IdJoc" msprop:Generator_UserParentTable="Jocuri" msprop:Generator_UserChildTable="Intersectie" msprop:Generator_RelationVarName="relationJocuri_Intersectie" msprop:Generator_ChildPropName="GetIntersectieRows" msprop:Generator_ParentPropName="JocuriRow" msprop:Generator_UserRelationName="Jocuri_Intersectie" />
+      <msdata:Relationship name="Cuvinte_Intersectie" msdata:parent="Cuvinte" msdata:child="Intersectie" msdata:parentkey="Id" msdata:childkey="IdCuvant" msprop:Generator_UserParentTable="Cuvinte" msprop:Generator_UserChildTable="Intersectie" msprop:Generator_RelationVarName="relationCuvinte_Intersectie" msprop:Generator_ChildPropName="GetIntersectieRows" msprop:Generator_UserRelationName="Cuvinte_Intersectie" msprop:Generator_ParentPropName="CuvinteRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

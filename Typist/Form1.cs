@@ -40,6 +40,11 @@ namespace Typist
             if(!Database.checkUser(usernameTextbox.Text))
             {
                 MessageBox.Show("Utilizator inexistent!");
+            } else
+            {
+                this.Visible = false;
+                IstoricJucator ist = new IstoricJucator(Database.getUser(usernameTextbox.Text));
+                ist.ShowDialog();
             }
         }
     }
