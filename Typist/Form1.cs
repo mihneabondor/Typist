@@ -31,7 +31,7 @@ namespace Typist
         private void singurButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            setariJoc f = new setariJoc();
+            setariJoc f = new setariJoc("singur");
             f.ShowDialog();
         }
 
@@ -46,6 +46,20 @@ namespace Typist
                 IstoricJucator ist = new IstoricJucator(Database.getUser(usernameTextbox.Text));
                 ist.ShowDialog();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            setariJoc f = new setariJoc("impreuna");
+            f.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            conectare conectare = new conectare();
+            conectare.ShowDialog();
         }
     }
 }

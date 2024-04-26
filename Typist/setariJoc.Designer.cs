@@ -211,7 +211,7 @@ namespace Typist
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(99, 34);
             this.startButton.TabIndex = 13;
-            this.startButton.Text = "Start";
+            this.startButton.Text = "Continua";
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 

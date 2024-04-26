@@ -12,10 +12,17 @@ namespace Typist
 {
     public partial class setariJoc : Form
     {
+        string modJoc = "singur";
         
         public setariJoc()
         {
             InitializeComponent();
+        }
+
+        public setariJoc(string modJoc)
+        {
+            InitializeComponent();
+            this.modJoc = modJoc;
         }
 
         private void closing(object sender, FormClosingEventArgs e)
@@ -49,11 +56,19 @@ namespace Typist
         {
             if (!numeUtilizator.Text.Contains('.') && numeUtilizator.Text.CompareTo("Scrie...") != 0 && numeUtilizator.Text.Trim() != "")
             {
-                Database.createGame(durataSlider.Value, "singur", numeUtilizator.Text, numarCuvinteSlider.Value, cuvinteCheckBox.Checked, numereCheckBox.Checked, punctuatieCheckBox.Checked);
+                Database.createGame(durataSlider.Value, modJoc, numeUtilizator.Text, numarCuvinteSlider.Value, cuvinteCheckBox.Checked, numereCheckBox.Checked, punctuatieCheckBox.Checked);
 
                 this.Visible = false;
-                interfataJocSingur f = new interfataJocSingur(durataSlider.Value, Database.composeText());
-                f.ShowDialog();
+
+                if (modJoc.CompareTo("singur") == 0)
+                {
+                    interfataJocSingur f = new interfataJocSingur(durataSlider.Value, Database.composeText());
+                    f.ShowDialog();
+                } else
+                {
+                    invitaPrieten invitaPrieten = new invitaPrieten(durataSlider.Value, Database.composeText(), numeUtilizator.Text);
+                    invitaPrieten.ShowDialog();
+                }
             }
             else MessageBox.Show("Nume de utilizator invalid! Nu poate fi gol si nu poate contine \'.\'!");
         }

@@ -44,6 +44,7 @@ namespace Typist
             this.jucatoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jucatoriTableAdapter = new Typist.DataSetTableAdapters.JucatoriTableAdapter();
             this.tableAdapterManager = new Typist.DataSetTableAdapters.TableAdapterManager();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
@@ -55,7 +56,7 @@ namespace Typist
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monospac821 BT", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(322, 54);
+            this.label1.Location = new System.Drawing.Point(328, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 39);
             this.label1.TabIndex = 0;
@@ -76,13 +77,14 @@ namespace Typist
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.singurButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Location = new System.Drawing.Point(100, 152);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(233, 146);
+            this.groupBox1.Size = new System.Drawing.Size(233, 189);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Joc nou";
@@ -96,8 +98,9 @@ namespace Typist
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(221, 40);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Cu un prieten";
+            this.button2.Text = "Gazduieste joc";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox2
             // 
@@ -106,7 +109,7 @@ namespace Typist
             this.groupBox2.Controls.Add(this.usernameTextbox);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox2.Location = new System.Drawing.Point(445, 152);
+            this.groupBox2.Location = new System.Drawing.Point(443, 184);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(233, 146);
             this.groupBox2.TabIndex = 3;
@@ -183,6 +186,19 @@ namespace Typist
             this.tableAdapterManager.JucatoriTableAdapter = this.jucatoriTableAdapter;
             this.tableAdapterManager.UpdateOrder = Typist.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Gold;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(6, 143);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(221, 40);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Conectare";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +238,7 @@ namespace Typist
         private System.Windows.Forms.BindingSource jucatoriBindingSource;
         private DataSetTableAdapters.JucatoriTableAdapter jucatoriTableAdapter;
         private DataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -197,8 +197,11 @@ namespace Typist
             return Convert.ToInt32(Jocuri.getTime(id));
         }
 
-        public static void deleteGame(int id)
+        public static void deleteGame(int id = -1)
         {
+            if (id == -1)
+                id = Convert.ToInt32(Jocuri.getLatestGameId().ToString());
+
             Jocuri.deleteGame(id);
             Detalii.deleteDetails(id);
             Evidenta.deletePlayerGameRelation(id);

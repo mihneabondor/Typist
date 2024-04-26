@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="conectare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="conectare.Designer.cs">
+      <DependentUpon>conectare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="DataSet.cs">
       <DependentUpon>DataSet.xsd</DependentUpon>
@@ -68,6 +74,12 @@
     <Compile Include="interfataJocSingur.Designer.cs">
       <DependentUpon>interfataJocSingur.cs</DependentUpon>
     </Compile>
+    <Compile Include="invitaPrieten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="invitaPrieten.Designer.cs">
+      <DependentUpon>invitaPrieten.cs</DependentUpon>
+    </Compile>
     <Compile Include="IstoricJucator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,11 +100,18 @@
     <Compile Include="veziRezultate.Designer.cs">
       <DependentUpon>veziRezultate.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebsocketService.cs" />
+    <EmbeddedResource Include="conectare.resx">
+      <DependentUpon>conectare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="interfataJocSingur.resx">
       <DependentUpon>interfataJocSingur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="invitaPrieten.resx">
+      <DependentUpon>invitaPrieten.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IstoricJucator.resx">
       <DependentUpon>IstoricJucator.cs</DependentUpon>
