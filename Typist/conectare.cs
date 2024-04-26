@@ -23,5 +23,14 @@ namespace Typist
             Form1 form1 = new Form1();
             form1.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (playerList.Text.CompareTo("Introdu numele de utilizator...") != 0 && playerList.Text.CompareTo("") != 0)
+            {
+                WebsocketService.connect(codeField.Text, playerList.Text);
+            }
+            else MessageBox.Show("Introdu un nume de utilizator valid!");
+        }
     }
 }

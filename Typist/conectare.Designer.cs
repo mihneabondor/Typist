@@ -56,6 +56,7 @@
             this.button2.TabIndex = 35;
             this.button2.Text = "Conectare";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // codeField
             // 
@@ -174,10 +175,9 @@
             this.playerList.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.playerList.Location = new System.Drawing.Point(17, 95);
             this.playerList.Name = "playerList";
-            this.playerList.ReadOnly = true;
             this.playerList.Size = new System.Drawing.Size(382, 100);
             this.playerList.TabIndex = 23;
-            this.playerList.Text = "";
+            this.playerList.Text = "Introdu numele de utilizator...";
             // 
             // label1
             // 

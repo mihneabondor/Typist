@@ -34,6 +34,7 @@ namespace Typist
             playerList.Text = user + '\n';
 
             codeField.Text = WebsocketService.cryptedAddress;
+            timer1.Start();
         }
 
         private void closing(object sender, FormClosingEventArgs e)
@@ -47,6 +48,7 @@ namespace Typist
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             Clipboard.SetText(codeField.Text);
         }
 
@@ -57,6 +59,15 @@ namespace Typist
             else
             {
                 // incepe jocul
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(WebsocketService.incomingText.Length > 0)
+            {
+                timer1.Stop();
+                playerList.Text += WebsocketService.incomingText;
             }
         }
     }

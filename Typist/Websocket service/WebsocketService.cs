@@ -4,9 +4,10 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
+using WebSocketSharp.Server;
+using WebSocketSharp;
+using Typist.Websocket_service;
+using System.Windows.Forms;
 
 namespace Typist
 {
@@ -14,6 +15,11 @@ namespace Typist
     {
         public static string address = "ws://";
         public static string cryptedAddress = "";
+        public static string incomingText = "";
+        public static string outgoingText = "";
+
+        public static WebSocketServer wssv;
+        public static WebSocket ws;
 
         static WebsocketService()
         {
@@ -58,9 +64,10 @@ namespace Typist
                 }
             }
             cryptedAddress = crypt(address);
+            host();
         }
 
-        public static string crypt(string s)
+        private static string crypt(string s)
         {
             string sol = "";
             for (int i = s.LastIndexOf('/') + 1; i < s.Length; i++)
@@ -89,6 +96,35 @@ namespace Typist
             }
 
             return sol;
+        }
+
+        private static void host()
+        {
+            wssv = new WebSocketServer(address);
+            wssv.AddWebSocketService<OrganizationWSBehavior>("/OrganizationWSBehavior");
+            wssv.Start();
+        }
+
+        public static void connect(string code, string username)
+        {
+            string aux = "ws://" + decrypt(code) + "/OrganizationWSBehavior";
+            try
+            {
+                ws = new WebSocket(aux);
+                ws.Connect();
+                ws.OnMessage += wsOnMessage;
+
+                ws.Send(username); //anuntam venirea
+            }
+            catch
+            {
+                MessageBox.Show("Eroare la conectare!");
+            }
+        }
+
+        private static void wsOnMessage(object sender, MessageEventArgs e)
+        {
+            incomingText = e.Data.ToString().Trim();
         }
 
     }
