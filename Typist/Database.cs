@@ -197,5 +197,15 @@ namespace Typist
                 return Convert.ToInt32(Jocuri.getTime(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
             return Convert.ToInt32(Jocuri.getTime(id));
         }
+
+        public static void deleteGame(int id)
+        {
+            Jocuri.deleteGame(id);
+            Detalii.deleteDetails(id);
+            Evidenta.deletePlayerGameRelation(id);
+            Intersectie.deleteGameWordRelation(id);
+
+            DbFill(ds);
+        }
     }
 }

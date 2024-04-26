@@ -7,9 +7,9 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="52" ViewPortY="11" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Cuvinte" ZOrder="4" X="1025" Y="463" Height="209" Width="189" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
-    <Shape ID="DesignTable:Detalii" ZOrder="2" X="717" Y="21" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="121" />
-    <Shape ID="DesignTable:Evidenta" ZOrder="5" X="326" Y="272" Height="153" Width="297" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
-    <Shape ID="DesignTable:Intersectie" ZOrder="3" X="672" Y="519" Height="172" Width="294" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
+    <Shape ID="DesignTable:Detalii" ZOrder="2" X="716" Y="22" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="121" />
+    <Shape ID="DesignTable:Evidenta" ZOrder="5" X="326" Y="272" Height="172" Width="297" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
+    <Shape ID="DesignTable:Intersectie" ZOrder="3" X="672" Y="519" Height="191" Width="294" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
     <Shape ID="DesignTable:Jocuri" ZOrder="1" X="743" Y="294" Height="151" Width="247" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="102" OldDataTableHeight="121" SplitterPosition="25" />
     <Shape ID="DesignTable:Jucatori" ZOrder="6" X="62" Y="250" Height="210" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
   </Shapes>
@@ -41,12 +41,12 @@
     <Connector ID="DesignRelation:Jocuri_Detalii" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>842</X>
+          <X>841</X>
           <Y>294</Y>
         </Point>
         <Point>
-          <X>842</X>
-          <Y>269</Y>
+          <X>841</X>
+          <Y>270</Y>
         </Point>
       </RoutePoints>
     </Connector>
