@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Typist.DatabaseDataSetTableAdapters;
 
 namespace Typist
 {
