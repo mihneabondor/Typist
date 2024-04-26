@@ -64,7 +64,7 @@ namespace Typist
                 }
             }
             cryptedAddress = crypt(address);
-            host();
+            //host();
         }
 
         private static string crypt(string s)
@@ -98,14 +98,14 @@ namespace Typist
             return sol;
         }
 
-        private static void host()
+        public static void host()
         {
             wssv = new WebSocketServer(address);
             wssv.AddWebSocketService<OrganizationWSBehavior>("/OrganizationWSBehavior");
             wssv.Start();
         }
 
-        public static void connect(string code, string username)
+        public static bool connect(string code, string username)
         {
             string aux = "ws://" + decrypt(code) + "/OrganizationWSBehavior";
             try
@@ -119,7 +119,10 @@ namespace Typist
             catch
             {
                 MessageBox.Show("Eroare la conectare!");
+                return false;
             }
+
+            return true;
         }
 
         private static void wsOnMessage(object sender, MessageEventArgs e)

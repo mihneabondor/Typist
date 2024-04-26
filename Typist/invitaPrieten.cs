@@ -33,8 +33,7 @@ namespace Typist
             textField.Text = text;
             playerList.Text = user + '\n';
 
-            codeField.Text = WebsocketService.cryptedAddress;
-            timer1.Start();
+            WebsocketService.outgoingText = user + ' ' + modJocLabel.Text + ' ' + timpLabel.Text + ' ' + numarCuvinteLabel.Text + ' ' + text;
         }
 
         private void closing(object sender, FormClosingEventArgs e)
@@ -68,7 +67,16 @@ namespace Typist
             {
                 timer1.Stop();
                 playerList.Text += WebsocketService.incomingText;
+                Database.addPlayerToGame(WebsocketService.incomingText);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+            WebsocketService.host();
+            codeField.Text = WebsocketService.cryptedAddress;
+            timer1.Start();
         }
     }
 }

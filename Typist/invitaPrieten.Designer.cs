@@ -45,6 +45,7 @@
             this.codeField = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -198,7 +199,7 @@
             this.button2.BackColor = System.Drawing.Color.Gold;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(520, 135);
+            this.button2.Location = new System.Drawing.Point(520, 175);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 34);
             this.button2.TabIndex = 21;
@@ -210,12 +211,26 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Gold;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(520, 135);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 34);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Genereaza cod";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // invitaPrieten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 427);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.codeField);
             this.Controls.Add(this.label9);
@@ -256,5 +271,6 @@
         private System.Windows.Forms.TextBox codeField;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button1;
     }
 }

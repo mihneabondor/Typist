@@ -178,6 +178,7 @@
             this.playerList.Size = new System.Drawing.Size(382, 100);
             this.playerList.TabIndex = 23;
             this.playerList.Text = "Introdu numele de utilizator...";
+            this.playerList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.playerListClick);
             // 
             // label1
             // 

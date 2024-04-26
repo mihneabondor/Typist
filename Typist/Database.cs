@@ -106,6 +106,22 @@ namespace Typist
             }
         }
 
+        public static void syncGame(int timp, string text)
+        {
+            Jocuri.createGame(timp, "impreuna");
+            string[] split = text.Split(' ');
+            foreach (string s in split)
+                Intersectie.createGameWordRelation(Convert.ToInt32(Jocuri.getLatestGameId()), Convert.ToInt32(Cuvinte.getId(s)));
+        }
+
+        public static void addPlayerToGame(string username)
+        {
+            if(!checkUser(username)) {
+                Jucatori.createUser(username);
+            }
+            Evidenta.createPlayerGameRelation(Convert.ToInt32(Jucatori.getUserId(username)), Convert.ToInt32(Jocuri.getLatestGameId()));
+        }
+
         public static string composeText()
         {
             string rez = "";
