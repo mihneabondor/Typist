@@ -32,7 +32,9 @@ namespace Typist
                     Database.createDetail(Convert.ToInt32(detail[1]), Convert.ToInt32(detail[2]), Convert.ToInt32(detail[3]), Convert.ToInt32(detail[4]));
                 }
 
-                MessageBox.Show("succes");
+                this.Visible = false;
+                veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
+                veziRezultate.ShowDialog();
             }
         }
 
@@ -66,7 +68,6 @@ namespace Typist
             }
             else
             {
-                asteptareLabel.Visible = true;
                 timer2.Start();
             }
         }
@@ -141,7 +142,6 @@ namespace Typist
 
             if (text.Length == 0)
             {
-                continuaButton.Enabled = true;
                 MessageBox.Show("gata");
                 gata = true;
             }
@@ -167,7 +167,6 @@ namespace Typist
                 if (timp == 0)
                 {
                     hostTextbox.ReadOnly = true;
-                    continuaButton.Enabled = true;
                     MessageBox.Show("timpul a expirat");
                 }
             }

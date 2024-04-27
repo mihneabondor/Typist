@@ -3658,7 +3658,7 @@ SELECT IdJoc, Id, NrCuvinte, NrGreseli, Secunda FROM Detalii WHERE (Id = @Id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[11];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[12];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        IdJoc, Id, NrCuvinte, NrGreseli, Secunda\r\nFROM            Detalii";
@@ -3667,7 +3667,7 @@ SELECT IdJoc, Id, NrCuvinte, NrGreseli, Secunda FROM Detalii WHERE (Id = @Id)";
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"INSERT INTO Detalii
                          (IdJoc, NrCuvinte, NrGreseli, Secunda, IdJucator)
-VALUES        (@IdJoc,@NrCuvinte,@NrGreseli,@Secunda,@IdJucator);  
+VALUES        (@IdJoc,@NrCuvinte,@NrGreseli,@Secunda,@IdJucator);   
 SELECT IdJoc, Id, NrCuvinte, NrGreseli, Secunda FROM Detalii WHERE (Id = SCOPE_IDENTITY())";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdJoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3704,15 +3704,13 @@ FROM            Detalii AS Detalii_1";
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdJucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT        NrGreseli, Secunda\r\nFROM            Detalii\r\nWHERE        (IdJoc = " +
-                "@idjoc) AND (IdJucator = @idjucator OR\r\n                         IdJucator IS NU" +
-                "LL)";
+            this._commandCollection[5].CommandText = "SELECT        IdJucator\r\nFROM            Detalii\r\nWHERE        (IdJucator <> @idJ" +
+                "ucator)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idJucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT        Secunda, NrCuvinte\r\nFROM            Detalii\r\nWHERE        (IdJoc = " +
+            this._commandCollection[6].CommandText = "SELECT        NrGreseli, Secunda\r\nFROM            Detalii\r\nWHERE        (IdJoc = " +
                 "@idjoc) AND (IdJucator = @idjucator OR\r\n                         IdJucator IS NU" +
                 "LL)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
@@ -3720,30 +3718,38 @@ FROM            Detalii AS Detalii_1";
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "SELECT        MAX(NrGreseli) AS Expr1\r\nFROM            Detalii\r\nWHERE        (IdJ" +
-                "oc = @idJoc) AND (IdJucator = @idjucator OR\r\n                         IdJucator " +
-                "IS NULL)";
+            this._commandCollection[7].CommandText = "SELECT        Secunda, NrCuvinte\r\nFROM            Detalii\r\nWHERE        (IdJoc = " +
+                "@idjoc) AND (IdJucator = @idjucator OR\r\n                         IdJucator IS NU" +
+                "LL)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idJoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "SELECT        COUNT(Secunda) AS Expr1\r\nFROM            Detalii\r\nWHERE        (IdJ" +
-                "oc = @idjoc) AND (IdJucator = @idjucator OR\r\n                         IdJucator " +
+            this._commandCollection[8].CommandText = "SELECT        MAX(NrGreseli) AS Expr1\r\nFROM            Detalii\r\nWHERE        (IdJ" +
+                "oc = @idJoc) AND (IdJucator = @idjucator OR\r\n                         IdJucator " +
                 "IS NULL)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idJoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = "SELECT        MAX(NrCuvinte) AS Expr1\r\nFROM            Detalii\r\nWHERE        (IdJ" +
-                "oc = @idjoc AND (IdJucator = @idjucator OR IdJucator IS NULL))";
+            this._commandCollection[9].CommandText = "SELECT        COUNT(Secunda) AS Expr1\r\nFROM            Detalii\r\nWHERE        (IdJ" +
+                "oc = @idjoc) AND (IdJucator = @idjucator OR\r\n                         IdJucator " +
+                "IS NULL)";
             this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = @"SELECT        FLOOR(CAST
+            this._commandCollection[10].CommandText = "SELECT        MAX(NrCuvinte) AS Expr1\r\nFROM            Detalii\r\nWHERE        (IdJ" +
+                "oc = @idjoc AND (IdJucator = @idjucator OR IdJucator IS NULL))";
+            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[11].Connection = this.Connection;
+            this._commandCollection[11].CommandText = @"SELECT        FLOOR(CAST
                              ((SELECT        MAX(NrCuvinte) AS Expr1
                                  FROM            Detalii
                                  WHERE        (IdJoc = @idjoc AND (IdJucator = @idjucator OR IdJucator IS NULL))) AS FLOAT) * 60 / CAST
@@ -3751,9 +3757,9 @@ FROM            Detalii AS Detalii_1";
                                  FROM            Detalii AS Detalii_3
                                  WHERE        (IdJoc = @idjoc AND (IdJucator = @idjucator OR IdJucator IS NULL))) AS FLOAT)) AS Expr1
 FROM            Detalii AS Detalii_1";
-            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idjucator", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJucator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3823,7 +3829,7 @@ FROM            Detalii AS Detalii_1";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int getGraphDataMistakes(DataSet.DetaliiDataTable dataTable, int idjoc, global::System.Nullable<int> idjucator) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idjoc));
             if ((idjucator.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idjucator.Value));
@@ -3843,7 +3849,7 @@ FROM            Detalii AS Detalii_1";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSet.DetaliiDataTable GetDataBy3(int idjoc, global::System.Nullable<int> idjucator) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idjoc));
             if ((idjucator.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idjucator.Value));
@@ -3861,7 +3867,7 @@ FROM            Detalii AS Detalii_1";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int getGraphDataWords(DataSet.DetaliiDataTable dataTable, int idjoc, global::System.Nullable<int> idjucator) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idjoc));
             if ((idjucator.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idjucator.Value));
@@ -3881,7 +3887,7 @@ FROM            Detalii AS Detalii_1";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSet.DetaliiDataTable GetDataBy11(int idjoc, global::System.Nullable<int> idjucator) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idjoc));
             if ((idjucator.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idjucator.Value));
@@ -4108,8 +4114,42 @@ FROM            Detalii AS Detalii_1";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> getFriendsId(global::System.Nullable<int> idJucator) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            if ((idJucator.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(idJucator.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object getMaxMistakes(int idJoc, global::System.Nullable<int> idjucator) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
             command.Parameters[0].Value = ((int)(idJoc));
             if ((idjucator.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(idjucator.Value));
@@ -4144,41 +4184,6 @@ FROM            Detalii AS Detalii_1";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object getMaxSecond(int idjoc, global::System.Nullable<int> idjucator) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
-            command.Parameters[0].Value = ((int)(idjoc));
-            if ((idjucator.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(idjucator.Value));
-            }
-            else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object getMaxWords(int idjoc, global::System.Nullable<int> idjucator) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             command.Parameters[0].Value = ((int)(idjoc));
             if ((idjucator.HasValue == true)) {
@@ -4213,8 +4218,43 @@ FROM            Detalii AS Detalii_1";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object getWPM(int idjoc, global::System.Nullable<int> idjucator) {
+        public virtual object getMaxWords(int idjoc, global::System.Nullable<int> idjucator) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
+            command.Parameters[0].Value = ((int)(idjoc));
+            if ((idjucator.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(idjucator.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object getWPM(int idjoc, global::System.Nullable<int> idjucator) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
             command.Parameters[0].Value = ((int)(idjoc));
             if ((idjucator.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(idjucator.Value));

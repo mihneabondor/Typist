@@ -257,5 +257,10 @@ namespace Typist
             Detalii.getDetails(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId().ToString()), idUser);
             return ds.Detalii;
         }
+
+        public static int getFriendId(int id)
+        {
+            return Convert.ToInt32(Detalii.getFriendsId(id));
+        }
     }
 }

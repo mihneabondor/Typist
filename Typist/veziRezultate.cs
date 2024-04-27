@@ -13,18 +13,33 @@ namespace Typist
     public partial class veziRezultate : Form
     {
         bool rezultatePrieten = false;
-        int id = -1;
+        int id = -1, idPrieten = -1;
 
         public veziRezultate()
         {
             InitializeComponent();
         }
 
-        public veziRezultate(bool rezultatePrieten, string modJoc)
+        public veziRezultate(bool rezultatePrieten, string modJoc, int idPrieten = -1)
         {
             InitializeComponent();
             this.rezultatePrieten = rezultatePrieten;
             veziRezultatePrieten.Visible = !Database.singlePlayerGame();
+            numeLabel.Visible = !Database.singlePlayerGame();
+
+            if (idPrieten != -1)
+                this.id = idPrieten;
+        }
+        public veziRezultate(bool rezultatePrieten, string modJoc, int hostId, int guestId)
+        {
+            InitializeComponent();
+            this.rezultatePrieten = rezultatePrieten;
+            veziRezultatePrieten.Visible = !Database.singlePlayerGame();
+            numeLabel.Visible = !Database.singlePlayerGame();
+            numeLabel.Text = Database.getUser(hostId);
+
+            this.id = hostId;
+            this.idPrieten = guestId;
         }
 
         public veziRezultate(int id)
@@ -32,6 +47,9 @@ namespace Typist
             this.id = id;
             InitializeComponent();
             veziRezultatePrieten.Visible = !Database.singlePlayerGame(id);
+            numeLabel.Visible = !Database.singlePlayerGame(id);
+            //de luat celalt id
+            idPrieten = Database.getFriendId(id);
         }
 
         private void closing(object sender, FormClosingEventArgs e)
@@ -58,7 +76,7 @@ namespace Typist
 
         private void veziRezultatePrieten_Click(object sender, EventArgs e)
         {
-            veziRezultate f = new veziRezultate(true, "impreuna");
+            veziRezultate f = new veziRezultate(true, "impreuna", idPrieten);
             f.ShowDialog();
         }
 

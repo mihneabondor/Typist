@@ -48,6 +48,7 @@
             this.corecteLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.veziRezultatePrieten = new System.Windows.Forms.Button();
+            this.numeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -279,12 +280,24 @@
             this.veziRezultatePrieten.UseVisualStyleBackColor = false;
             this.veziRezultatePrieten.Click += new System.EventHandler(this.veziRezultatePrieten_Click);
             // 
+            // numeLabel
+            // 
+            this.numeLabel.AutoSize = true;
+            this.numeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numeLabel.ForeColor = System.Drawing.Color.Gold;
+            this.numeLabel.Location = new System.Drawing.Point(12, 422);
+            this.numeLabel.Name = "numeLabel";
+            this.numeLabel.Size = new System.Drawing.Size(89, 16);
+            this.numeLabel.TabIndex = 31;
+            this.numeLabel.Text = "*rezultatele lui";
+            // 
             // veziRezultate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numeLabel);
             this.Controls.Add(this.veziRezultatePrieten);
             this.Controls.Add(this.corecteLabel);
             this.Controls.Add(this.label14);
@@ -328,5 +341,6 @@
         private System.Windows.Forms.Label corecteLabel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button veziRezultatePrieten;
+        private System.Windows.Forms.Label numeLabel;
     }
 }
