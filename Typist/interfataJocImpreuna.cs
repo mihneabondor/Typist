@@ -15,8 +15,62 @@ namespace Typist
 
     public partial class interfataJocImpreuna : Form
     {
-        int timp, timpMaxim, nrCuvinte, nrGreseli, nrCuvinteMaxim;
+        int timp, timpMaxim, nrCuvinte, nrGreseli, nrCuvinteMaxim, hostId, guestId;
         string text, userText = "";
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (WebsocketService.incomingText.Contains('\n'))
+            {
+                timer2.Stop();
+                //sync
+                string[] detailsText = WebsocketService.incomingText.Split('\n');
+
+                foreach (string details in detailsText)
+                {
+                    string[] detail = details.Split(' ');
+                    Database.createDetail(Convert.ToInt32(detail[1]), Convert.ToInt32(detail[2]), Convert.ToInt32(detail[3]), Convert.ToInt32(detail[4]));
+                }
+
+                MessageBox.Show("succes");
+            }
+        }
+
+        private void continuaButton_Click(object sender, EventArgs e)
+        {
+            // trimitem detalii de la guest la host
+            DataTable dt = Database.getDetails(hostId);
+
+            string text = "";
+            for (int i = 0; i < dt.Rows.Count; i++)
+                text += dt.Rows[i]["IdJoc"].ToString().Trim() + ' ' + dt.Rows[i]["NrCuvinte"].ToString().Trim() + ' ' + dt.Rows[i]["NrGreseli"].ToString().Trim() + ' ' + dt.Rows[i]["Secunda"].ToString().Trim() + ' ' + dt.Rows[i]["IdJucator"].ToString().Trim() + '\n';
+
+            WebsocketService.outgoingText = text;
+            WebsocketService.sendMessage();
+
+            Thread.Sleep(1000);
+            if (WebsocketService.incomingText.Contains('\n'))
+            {
+
+                string[] detailsText = WebsocketService.incomingText.Split('\n');
+
+                foreach (string details in detailsText)
+                {
+                    string[] detail = details.Split(' ');
+                    Database.createDetail(Convert.ToInt32(detail[1]), Convert.ToInt32(detail[2]), Convert.ToInt32(detail[3]), Convert.ToInt32(detail[4]));
+                }
+
+                this.Visible = false;
+                veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
+                veziRezultate.ShowDialog();
+            }
+            else
+            {
+                asteptareLabel.Visible = true;
+                timer2.Start();
+            }
+        }
+
         bool gata = false;
 
         public interfataJocImpreuna()
@@ -24,7 +78,7 @@ namespace Typist
             InitializeComponent();
         }
 
-        public interfataJocImpreuna(int timp, string text)
+        public interfataJocImpreuna(int timp, string text, int hostId, int guestId)
         {
             InitializeComponent();
 
@@ -32,6 +86,8 @@ namespace Typist
             this.timpMaxim = timp;
             this.text = text.Trim();
             this.nrCuvinteMaxim = this.text.Split(' ').Length;
+            this.hostId = hostId;
+            this.guestId = guestId;
 
             timerLabel.Text = timp.ToString();
             hostTextbox.Text = text;
@@ -85,6 +141,7 @@ namespace Typist
 
             if (text.Length == 0)
             {
+                continuaButton.Enabled = true;
                 MessageBox.Show("gata");
                 gata = true;
             }
@@ -92,12 +149,15 @@ namespace Typist
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            guestTextbox.Text = WebsocketService.incomingText;
-            WebsocketService.outgoingText = hostTextbox.Text;
-            WebsocketService.sendMessage();
+            if (!WebsocketService.incomingText.Contains('\n'))
+            {
+                guestTextbox.Text = WebsocketService.incomingText;
+                WebsocketService.outgoingText = hostTextbox.Text;
+                WebsocketService.sendMessage();
+            }
 
             if (!gata)
-                Database.createDetail(nrCuvinte, nrGreseli, timpMaxim - timp);
+                Database.createDetail(nrCuvinte, nrGreseli, timpMaxim - timp, hostId);
 
             timp--;
 
@@ -107,18 +167,24 @@ namespace Typist
                 if (timp == 0)
                 {
                     hostTextbox.ReadOnly = true;
+                    continuaButton.Enabled = true;
                     MessageBox.Show("timpul a expirat");
                 }
             }
 
             if (gata || timp == 0)
             {
-                Thread.Sleep(3000);
                 timer1.Stop();
+                timer2.Start();
+                DataTable dt = Database.getDetails(hostId);
 
-                this.Visible = false;
-                veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
-                veziRezultate.ShowDialog();
+                string text = "";
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    text += dt.Rows[i]["IdJoc"].ToString().Trim() + ' ' + dt.Rows[i]["NrCuvinte"].ToString().Trim() + ' ' + dt.Rows[i]["NrGreseli"].ToString().Trim() + ' ' + dt.Rows[i]["Secunda"].ToString().Trim() + ' ' + dt.Rows[i]["IdJucator"].ToString().Trim() + '\n';
+
+                WebsocketService.outgoingText = text;
+                WebsocketService.sendMessage();
+                //continuaButton.Enabled = true;
             }
         }
     }

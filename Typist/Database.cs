@@ -132,10 +132,13 @@ namespace Typist
             return rez;
         }
 
-        public static void createDetail(int nrCuvinte, int nrGreseli, int secunda)
+        public static void createDetail(int nrCuvinte, int nrGreseli, int secunda, int userId = -1)
         {
             int id = Convert.ToInt32(Jocuri.getLatestGameId());
-            Detalii.createDetail(id, nrCuvinte, nrGreseli, secunda);
+            if(userId == -1)
+                Detalii.createDetail(id, nrCuvinte, nrGreseli, secunda, null);
+            else Detalii.createDetail(id, nrCuvinte, nrGreseli, secunda, userId);
+
         }
 
         public static bool singlePlayerGame(int id = -1)
@@ -145,34 +148,48 @@ namespace Typist
             return Jocuri.getGameMode(id).ToString().Trim().CompareTo("singur") == 0;
         }
 
-        public static DataTable getWordDataForChart(int id = -1)
+        public static DataTable getWordDataForChart(int id = -1, int userId = -1)
         {
-            if(id == -1)
-                Detalii.getGraphDataWords(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId()));
-            else Detalii.getGraphDataWords(ds.Detalii, id);
+            if (id == -1)
+                id = Convert.ToInt32(Jocuri.getLatestGameId());
+            
+            if(userId == -1)
+                Detalii.getGraphDataWords(ds.Detalii, id, null);
+            else Detalii.getGraphDataWords(ds.Detalii, id, userId);
+
             return ds.Detalii;
         }
 
-        public static DataTable getMistakeDataForChart(int id = -1)
+        public static DataTable getMistakeDataForChart(int id = -1, int userId = -1)
         {
-            if(id == -1)
-                Detalii.getGraphDataMistakes(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId()));
-            else Detalii.getGraphDataMistakes(ds.Detalii, id);
+            if (id == -1)
+                id = Convert.ToInt32(Jocuri.getLatestGameId());
+
+            if(userId == -1)
+                Detalii.getGraphDataMistakes(ds.Detalii, id, null);
+            else Detalii.getGraphDataMistakes(ds.Detalii, id, userId);
+
             return ds.Detalii;
         }
 
-        public static int getWPM(int id = -1)
+        public static int getWPM(int id = -1, int userId = -1)
         {
-            if(id == -1)
-                return Convert.ToInt32(Detalii.getWPM(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
-            else return Convert.ToInt32(Detalii.getWPM(id));
+            if (id == -1)
+                id = Convert.ToInt32(Jocuri.getLatestGameId());
+
+            if(userId == -1)
+                return Convert.ToInt32(Detalii.getWPM(id, null));
+            else return Convert.ToInt32(Detalii.getWPM(id, userId));
         }
 
-        public static int getAccuracy(int id = -1)
+        public static int getAccuracy(int id = -1, int userId = -1)
         {
-            if(id == -1)
-                return Convert.ToInt32(Detalii.getAccuracy(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
-            return Convert.ToInt32(Detalii.getAccuracy(id));
+            if (id == -1)
+                id = Convert.ToInt32(Jocuri.getLatestGameId());
+
+            if (userId == -1)
+                return Convert.ToInt32(Detalii.getAccuracy(id, null));
+            return Convert.ToInt32(Detalii.getAccuracy(id, userId));
         }
 
         public static string getGameOptionsString(int id = -1)
@@ -185,25 +202,34 @@ namespace Typist
             return dt.Rows[0]["ModJoc"].ToString().Trim() + ' ' + dt.Rows[0]["timp"].ToString().Trim() + 's';
         }
 
-        public static int getMaxWords(int id = -1)
+        public static int getMaxWords(int id = -1, int userId = -1)
         {
-            if(id == -1)
-                return Convert.ToInt32(Detalii.getMaxWords(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
-            return Convert.ToInt32(Detalii.getMaxWords(id));
+            if (id == -1)
+                id = Convert.ToInt32(Jocuri.getLatestGameId());
+
+            if (userId == -1)
+                return Convert.ToInt32(Detalii.getMaxWords(id, null));
+            return Convert.ToInt32(Detalii.getMaxWords(id, userId));
         }
 
-        public static int getMaxMistakes(int id = -1)
+        public static int getMaxMistakes(int id = -1, int userId = -1)
         {
-            if(id == -1)
-                return Convert.ToInt32(Detalii.getMaxMistakes(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
-            return Convert.ToInt32(Detalii.getMaxMistakes(Convert.ToInt32(id)));
+            if (id == -1)
+                id = Convert.ToInt32(Jocuri.getLatestGameId());
+
+            if (userId == -1)
+                return Convert.ToInt32(Detalii.getMaxMistakes(id, null));
+            return Convert.ToInt32(Detalii.getMaxMistakes(id, userId));
         }
 
-        public static int getMaxTime(int id = -1)
+        public static int getMaxTime(int id = -1, int userId = -1)
         {
-            if(id == -1)
-                return Convert.ToInt32(Detalii.getMaxSecond(Convert.ToInt32(Jocuri.getLatestGameId().ToString())));
-            return Convert.ToInt32(Detalii.getMaxSecond(id));
+            if (id == -1)
+                id = Convert.ToInt32(Jocuri.getLatestGameId());
+
+            if (userId == -1)
+                return Convert.ToInt32(Detalii.getMaxSecond(id, null));
+            return Convert.ToInt32(Detalii.getMaxSecond(id, userId));
         }
 
         public static int getTime(int id = -1)
@@ -224,6 +250,12 @@ namespace Typist
             Intersectie.deleteGameWordRelation(id);
 
             DbFill(ds);
+        }
+
+        public static DataTable getDetails(int idUser)
+        {
+            Detalii.getDetails(ds.Detalii, Convert.ToInt32(Jocuri.getLatestGameId().ToString()), idUser);
+            return ds.Detalii;
         }
     }
 }

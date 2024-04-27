@@ -77,7 +77,15 @@ namespace Typist
             {
                 timer1.Stop();
                 this.Visible = false;
-                interfataJocImpreuna interfataJocImpreuna = new interfataJocImpreuna(timp, textField.Text);
+                string username1 = playerList.Text.Split('\n')[0];
+                string username2 = playerList.Text.Split('\n')[1];
+                if (!Database.checkUser(username1))
+                    Database.createUser(username1);
+
+                if (!Database.checkUser(username2))
+                    Database.createUser(username2);
+
+                interfataJocImpreuna interfataJocImpreuna = new interfataJocImpreuna(timp, textField.Text, Database.getUser(username1), Database.getUser(username2));
                 interfataJocImpreuna.ShowDialog();
                 
             }

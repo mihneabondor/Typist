@@ -34,6 +34,7 @@
             this.hostTextbox = new System.Windows.Forms.RichTextBox();
             this.guestTextbox = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timerLabel
@@ -67,7 +68,7 @@
             this.guestTextbox.Location = new System.Drawing.Point(48, 303);
             this.guestTextbox.Name = "guestTextbox";
             this.guestTextbox.ReadOnly = true;
-            this.guestTextbox.Size = new System.Drawing.Size(679, 213);
+            this.guestTextbox.Size = new System.Drawing.Size(679, 211);
             this.guestTextbox.TabIndex = 4;
             this.guestTextbox.Text = "Hello world";
             // 
@@ -75,6 +76,10 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // interfataJocImpreuna
             // 
@@ -100,5 +105,6 @@
         private System.Windows.Forms.RichTextBox hostTextbox;
         private System.Windows.Forms.RichTextBox guestTextbox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
