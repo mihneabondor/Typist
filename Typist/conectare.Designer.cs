@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(conectare));
             this.button2 = new System.Windows.Forms.Button();
             this.codeField = new System.Windows.Forms.TextBox();
@@ -43,6 +44,7 @@
             this.playerList = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.seAsteaptaGazdaLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // button2
@@ -203,6 +205,10 @@
             this.seAsteaptaGazdaLabel.Text = "Se asteapta gazda...";
             this.seAsteaptaGazdaLabel.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // conectare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,5 +254,6 @@
         private System.Windows.Forms.RichTextBox playerList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label seAsteaptaGazdaLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

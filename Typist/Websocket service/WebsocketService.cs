@@ -130,5 +130,10 @@ namespace Typist
             incomingText = e.Data.ToString().Trim();
         }
 
+        public static void sendFromServer(string text)
+        {
+            wssv.WebSocketServices["/OrganizationWSBehavior"].Sessions.Broadcast(text);
+        }
+
     }
 }

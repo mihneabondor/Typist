@@ -54,6 +54,8 @@ namespace Typist
                     int timp = Convert.ToInt32(text[2].Remove(text[2].Length - 1));
                     Database.syncGame(timp, textField.Text);
                     Database.addPlayerToGame(text[0]);
+
+                    timer1.Start();
                 }
             }
             else MessageBox.Show("Introdu un nume de utilizator valid!");
@@ -62,6 +64,15 @@ namespace Typist
         private void playerListClick(object sender, MouseEventArgs e)
         {
             playerList.Text = "";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(WebsocketService.incomingText.CompareTo("gata") == 0)
+            {
+                timer1.Stop();
+                Console.WriteLine("trimitem la joc");
+            }
         }
     }
 }

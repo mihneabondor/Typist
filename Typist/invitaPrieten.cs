@@ -58,6 +58,8 @@ namespace Typist
             else
             {
                 // incepe jocul
+                WebsocketService.sendFromServer("gata");
+                Console.WriteLine("incepem jocul");
             }
         }
 
