@@ -133,7 +133,27 @@ namespace Typist
         public static void sendFromServer(string text)
         {
             wssv.WebSocketServices["/OrganizationWSBehavior"].Sessions.Broadcast(text);
+            
         }
+
+        public static void stopServer()
+        {
+            wssv.Stop();
+        }
+
+        public static void disconnect()
+        {
+            ws.Close();
+        }
+
+        public static void sendMessage()
+        {
+            if(ws != null && ws.IsAlive)
+            {
+                ws.Send(outgoingText);
+            }
+        }
+        
 
     }
 }

@@ -38,7 +38,10 @@ namespace Typist
 
         private void closing(object sender, FormClosingEventArgs e)
         {
-            Environment.Exit(0);
+            Database.deleteGame();
+            this.Visible = false;
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
         }
         
         private void timer1_Tick(object sender, EventArgs e)
@@ -63,7 +66,7 @@ namespace Typist
                 timer1.Stop();
 
                 this.Visible = false;
-                veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
+                veziRezultate veziRezultate = new veziRezultate(false, "singur");
                 veziRezultate.ShowDialog();
             }
         }
@@ -71,7 +74,7 @@ namespace Typist
         private void renuntaButton_Click(object sender, EventArgs e)
         {
             timer1.Stop();
-
+            Database.deleteGame();
             this.Visible = false;
             Form1 form1 = new Form1();
             form1.ShowDialog();

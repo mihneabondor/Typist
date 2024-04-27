@@ -59,7 +59,10 @@ namespace Typist
             {
                 // incepe jocul
                 WebsocketService.sendFromServer("gata");
-                Console.WriteLine("incepem jocul");
+
+                this.Visible = false;
+                interfataJocImpreuna interfataJocImpreuna = new interfataJocImpreuna(timp, text);
+                interfataJocImpreuna.ShowDialog();
             }
         }
 

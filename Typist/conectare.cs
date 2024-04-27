@@ -13,6 +13,9 @@ namespace Typist
 {
     public partial class conectare : Form
     {
+        int timp = 0;
+        string text = "";
+
         public conectare()
         {
             InitializeComponent();
@@ -52,6 +55,8 @@ namespace Typist
                         textField.Text += text[i] + ' ';
 
                     int timp = Convert.ToInt32(text[2].Remove(text[2].Length - 1));
+                    this.timp = timp;
+
                     Database.syncGame(timp, textField.Text);
                     Database.addPlayerToGame(text[0]);
 
@@ -71,7 +76,10 @@ namespace Typist
             if(WebsocketService.incomingText.CompareTo("gata") == 0)
             {
                 timer1.Stop();
-                Console.WriteLine("trimitem la joc");
+                this.Visible = false;
+                interfataJocImpreuna interfataJocImpreuna = new interfataJocImpreuna(timp, textField.Text);
+                interfataJocImpreuna.ShowDialog();
+                
             }
         }
     }
