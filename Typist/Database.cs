@@ -22,8 +22,10 @@ namespace Typist
 
         static Database()
         {
-            ds = new DataSet();
-            ds.EnforceConstraints = false;
+            ds = new DataSet
+            {
+                EnforceConstraints = false
+            };
 
             Jucatori = new DataSetTableAdapters.JucatoriTableAdapter();
             Evidenta = new DataSetTableAdapters.EvidentaTableAdapter();
