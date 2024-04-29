@@ -28,7 +28,7 @@ namespace Typist
             numeLabel.Visible = !Database.singlePlayerGame();
 
             if (idPrieten != -1)
-                this.id = idPrieten;
+                this.idHost = idPrieten;
         }
         public veziRezultate(bool rezultatePrieten, string modJoc, int hostId, int guestId)
         {
@@ -84,20 +84,20 @@ namespace Typist
 
         private void veziRezultate_Load(object sender, EventArgs e)
         {
-            DataTable dt = Database.getWordDataForChart(id);
+            DataTable dt = Database.getWordDataForChart(id, idHost);
             for (int i = 0; i < dt.Rows.Count; i++) chart1.Series["Cuvinte"].Points.AddXY(Convert.ToInt32(dt.Rows[i]["Secunda"]), Convert.ToInt32(dt.Rows[i]["NrCuvinte"]));
 
-            dt = Database.getMistakeDataForChart(id);
+            dt = Database.getMistakeDataForChart(id, idHost);
             for (int i = 0; i < dt.Rows.Count; i++) 
                 if(Convert.ToInt32(dt.Rows[i]["NrGreseli"]) != 0)
                     chart1.Series["Greseli"].Points.AddXY(Convert.ToInt32(dt.Rows[i]["Secunda"]), Convert.ToInt32(dt.Rows[i]["NrGreseli"]));
             
-            CPMLabel.Text = Database.getWPM(id).ToString();
-            accurayLabel.Text = Database.getAccuracy(id).ToString() + '%';
+            CPMLabel.Text = Database.getWPM(id, idHost).ToString();
+            accurayLabel.Text = Database.getAccuracy(id, idHost).ToString() + '%';
             gameModeLabel.Text = Database.getGameOptionsString(id);
-            corecteLabel.Text = Database.getMaxWords(id).ToString();
-            greseliLabel.Text = Database.getMaxMistakes(id).ToString();
-            timeLabel.Text = Database.getMaxTime(id).ToString() + "s (din " + Database.getTime().ToString() + "s)"; 
+            corecteLabel.Text = Database.getMaxWords(id, idHost).ToString();
+            greseliLabel.Text = Database.getMaxMistakes(id, idHost).ToString();
+            timeLabel.Text = Database.getMaxTime(id, idHost).ToString() + "s (din " + Database.getTime(id).ToString() + "s)"; 
         }
     }
 }
