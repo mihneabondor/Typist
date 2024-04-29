@@ -35,8 +35,8 @@ namespace Typist
                 }
 
                 this.Visible = false;
-                veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
-                //veziRezultate.ShowDialog();
+                veziRezultate veziRezultate = new veziRezultate(false, "impreuna", hostId, guestId);
+                veziRezultate.ShowDialog();
             }
             //{
                 DataTable dt = Database.getDetails(hostId);
