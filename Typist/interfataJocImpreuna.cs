@@ -24,7 +24,7 @@ namespace Typist
             Console.WriteLine(WebsocketService.incomingText);
             if (WebsocketService.incomingText.Contains('\n'))
             {
-                timer2.Stop();
+                //timer2.Stop();
                 //sync
                 string[] detailsText = WebsocketService.incomingText.Split('\n');
 
@@ -35,10 +35,10 @@ namespace Typist
                 }
 
                 this.Visible = false;
-                veziRezultate veziRezultate = new veziRezultate(false, "impreuna", hostId, guestId);
-                veziRezultate.ShowDialog();
+                veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
+                //veziRezultate.ShowDialog();
             }
-            //else {
+            //{
                 DataTable dt = Database.getDetails(hostId);
 
                 string text = "";

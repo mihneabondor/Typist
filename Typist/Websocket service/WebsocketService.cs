@@ -140,12 +140,14 @@ namespace Typist
 
         public static void stopServer()
         {
-            wssv.Stop();
+            if(wssv != null)
+                wssv.Stop();    
         }
 
         public static void disconnect()
         {
-            ws.Close();
+            if(ws != null)
+                ws.Close();
         }
 
         public static void sendMessage()
