@@ -4469,7 +4469,8 @@ FROM            Detalii AS Detalii_1";
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdJoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT DISTINCT Id\r\nFROM            Evidenta\r\nWHERE        (IdJoc = @IdJoc)";
+            this._commandCollection[3].CommandText = "SELECT        IdJucator AS Id\r\nFROM            Evidenta\r\nWHERE        (IdJoc = @I" +
+                "dJoc)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdJoc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdJoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

@@ -38,6 +38,9 @@ namespace Typist
 
         private void closing(object sender, FormClosingEventArgs e)
         {
+            WebsocketService.disconnect();
+            WebsocketService.stopServer();
+
             Database.deleteGame();
 
             this.Visible = false;

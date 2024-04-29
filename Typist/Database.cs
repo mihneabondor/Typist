@@ -104,6 +104,8 @@ namespace Typist
                     Intersectie.createGameWordRelation(Convert.ToInt32(Jocuri.getLatestGameId()), id);
                 }
             }
+
+            DbFill(ds);
         }
 
         public static void syncGame(int timp, string text)
@@ -112,6 +114,7 @@ namespace Typist
             string[] split = text.Split(' ');
             foreach (string s in split)
                 Intersectie.createGameWordRelation(Convert.ToInt32(Jocuri.getLatestGameId()), Convert.ToInt32(Cuvinte.getId(s)));
+            DbFill(ds);
         }
 
         public static void addPlayerToGame(string username)
@@ -267,6 +270,7 @@ namespace Typist
         {
             Evidenta.getPlayerIds(ds.Evidenta, id);
             DataTable dt = ds.Evidenta;
+
             return (Convert.ToInt32(dt.Rows[0]["Id"]), Convert.ToInt32(dt.Rows[1]["Id"]));
         }
     }

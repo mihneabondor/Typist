@@ -28,7 +28,10 @@ namespace Typist
             numeLabel.Visible = !Database.singlePlayerGame();
 
             if (idPrieten != -1)
+            {
                 this.idHost = idPrieten;
+                numeLabel.Text = '*' + Database.getUser(idPrieten);
+            }
         }
         public veziRezultate(bool rezultatePrieten, string modJoc, int hostId, int guestId)
         {
@@ -36,7 +39,7 @@ namespace Typist
             this.rezultatePrieten = rezultatePrieten;
             veziRezultatePrieten.Visible = !Database.singlePlayerGame();
             numeLabel.Visible = !Database.singlePlayerGame();
-            numeLabel.Text = Database.getUser(hostId);
+            numeLabel.Text = '*' + Database.getUser(hostId);
 
             this.idHost = hostId;
             this.idPrieten = guestId;
@@ -48,14 +51,22 @@ namespace Typist
             InitializeComponent();
             veziRezultatePrieten.Visible = !Database.singlePlayerGame(id);
             numeLabel.Visible = !Database.singlePlayerGame(id);
+            
 
-            this.idHost = Database.getPlayerIds(id).Item1;
-            this.idPrieten = Database.getPlayerIds(id).Item2;
+            if (!Database.singlePlayerGame(id))
+            {
+                Console.WriteLine("id meci: " + id);
+                this.idHost = Database.getPlayerIds(id).Item1;
+                this.idPrieten = Database.getPlayerIds(id).Item2;
+                numeLabel.Text = '*' + Database.getUser(idHost);
+            }
         }
 
         private void closing(object sender, FormClosingEventArgs e)
         {
             this.Visible = false;
+            WebsocketService.disconnect();
+            WebsocketService.stopServer();
 
             if (!rezultatePrieten && id == -1)
             {
