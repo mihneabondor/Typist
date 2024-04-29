@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:Cuvinte" ZOrder="5" X="1025" Y="463" Height="210" Width="189" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
     <Shape ID="DesignTable:Detalii" ZOrder="1" X="727" Y="80" Height="151" Width="300" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="140" SplitterPosition="25" />
-    <Shape ID="DesignTable:Evidenta" ZOrder="6" X="326" Y="272" Height="172" Width="297" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
+    <Shape ID="DesignTable:Evidenta" ZOrder="6" X="326" Y="272" Height="191" Width="297" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
     <Shape ID="DesignTable:Intersectie" ZOrder="4" X="672" Y="519" Height="191" Width="294" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
     <Shape ID="DesignTable:Jocuri" ZOrder="2" X="743" Y="294" Height="151" Width="247" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="102" OldDataTableHeight="121" SplitterPosition="25" />
     <Shape ID="DesignTable:Jucatori" ZOrder="3" X="62" Y="250" Height="210" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />

@@ -17,9 +17,12 @@ namespace Typist {
     }
 }
 
-namespace Typist.DataSetTableAdapters {
-    
-    
+namespace Typist.DataSetTableAdapters
+{
+    partial class EvidentaTableAdapter
+    {
+    }
+
     public partial class JucatoriTableAdapter {
     }
 }

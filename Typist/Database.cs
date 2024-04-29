@@ -262,5 +262,12 @@ namespace Typist
         {
             return Convert.ToInt32(Detalii.getFriendsId(id));
         }
+
+        public static (int, int) getPlayerIds(int id)
+        {
+            Evidenta.getPlayerIds(ds.Evidenta, id);
+            DataTable dt = ds.Evidenta;
+            return (Convert.ToInt32(dt.Rows[0]["Id"]), Convert.ToInt32(dt.Rows[1]["Id"]));
+        }
     }
 }

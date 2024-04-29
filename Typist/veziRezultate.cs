@@ -49,9 +49,8 @@ namespace Typist
             veziRezultatePrieten.Visible = !Database.singlePlayerGame(id);
             numeLabel.Visible = !Database.singlePlayerGame(id);
 
-            //aici
-            //de luat celalt id
-            //idPrieten = Database.getFriendId(id);
+            this.idHost = Database.getPlayerIds(id).Item1;
+            this.idPrieten = Database.getPlayerIds(id).Item2;
         }
 
         private void closing(object sender, FormClosingEventArgs e)
