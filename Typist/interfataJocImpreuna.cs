@@ -20,6 +20,7 @@ namespace Typist
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            timer1.Stop();
             if (WebsocketService.incomingText.Contains('\n'))
             {
                 timer2.Stop();
@@ -45,40 +46,8 @@ namespace Typist
 
                 WebsocketService.outgoingText = text;
                 WebsocketService.sendMessage();
-            }
-        }
-
-        private void continuaButton_Click(object sender, EventArgs e)
-        {
-            // trimitem detalii de la guest la host
-            DataTable dt = Database.getDetails(hostId);
-
-            string text = "";
-            for (int i = 0; i < dt.Rows.Count; i++)
-                text += dt.Rows[i]["IdJoc"].ToString().Trim() + ' ' + dt.Rows[i]["NrCuvinte"].ToString().Trim() + ' ' + dt.Rows[i]["NrGreseli"].ToString().Trim() + ' ' + dt.Rows[i]["Secunda"].ToString().Trim() + ' ' + dt.Rows[i]["IdJucator"].ToString().Trim() + '\n';
-
-            WebsocketService.outgoingText = text;
-            WebsocketService.sendMessage();
-
-            Thread.Sleep(1000);
-            if (WebsocketService.incomingText.Contains('\n'))
-            {
-
-                string[] detailsText = WebsocketService.incomingText.Split('\n');
-
-                foreach (string details in detailsText)
-                {
-                    string[] detail = details.Split(' ');
-                    Database.createDetail(Convert.ToInt32(detail[1]), Convert.ToInt32(detail[2]), Convert.ToInt32(detail[3]), Convert.ToInt32(detail[4]));
-                }
-
-                this.Visible = false;
-                veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
-                veziRezultate.ShowDialog();
-            }
-            else
-            {
-                timer2.Start();
+                WebsocketService.sendFromServer(text);
+                Console.WriteLine(WebsocketService.incomingText);
             }
         }
 
@@ -108,6 +77,9 @@ namespace Typist
             WebsocketService.sendMessage();
         }
         private void closing(object sender, FormClosingEventArgs e) {
+            WebsocketService.disconnect();
+            WebsocketService.stopServer();
+
             this.Visible = false;
             Form1 form1 = new Form1();
             form1.ShowDialog();
