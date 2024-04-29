@@ -35,6 +35,16 @@ namespace Typist
                 this.Visible = false;
                 veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
                 veziRezultate.ShowDialog();
+            } else
+            {
+                DataTable dt = Database.getDetails(hostId);
+
+                string text = "";
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    text += dt.Rows[i]["IdJoc"].ToString().Trim() + ' ' + dt.Rows[i]["NrCuvinte"].ToString().Trim() + ' ' + dt.Rows[i]["NrGreseli"].ToString().Trim() + ' ' + dt.Rows[i]["Secunda"].ToString().Trim() + ' ' + dt.Rows[i]["IdJucator"].ToString().Trim() + '\n';
+
+                WebsocketService.outgoingText = text;
+                WebsocketService.sendMessage();
             }
         }
 
@@ -175,15 +185,6 @@ namespace Typist
             {
                 timer1.Stop();
                 timer2.Start();
-                DataTable dt = Database.getDetails(hostId);
-
-                string text = "";
-                for (int i = 0; i < dt.Rows.Count; i++)
-                    text += dt.Rows[i]["IdJoc"].ToString().Trim() + ' ' + dt.Rows[i]["NrCuvinte"].ToString().Trim() + ' ' + dt.Rows[i]["NrGreseli"].ToString().Trim() + ' ' + dt.Rows[i]["Secunda"].ToString().Trim() + ' ' + dt.Rows[i]["IdJucator"].ToString().Trim() + '\n';
-
-                WebsocketService.outgoingText = text;
-                WebsocketService.sendMessage();
-                //continuaButton.Enabled = true;
             }
         }
     }
