@@ -13,7 +13,7 @@ namespace Typist
     public partial class veziRezultate : Form
     {
         bool rezultatePrieten = false;
-        int id = -1, idPrieten = -1;
+        int id = -1, idPrieten = -1, idHost = -1;
 
         public veziRezultate()
         {
@@ -38,7 +38,7 @@ namespace Typist
             numeLabel.Visible = !Database.singlePlayerGame();
             numeLabel.Text = Database.getUser(hostId);
 
-            this.id = hostId;
+            this.idHost = hostId;
             this.idPrieten = guestId;
         }
 
@@ -48,8 +48,10 @@ namespace Typist
             InitializeComponent();
             veziRezultatePrieten.Visible = !Database.singlePlayerGame(id);
             numeLabel.Visible = !Database.singlePlayerGame(id);
+
+            //aici
             //de luat celalt id
-            idPrieten = Database.getFriendId(id);
+            //idPrieten = Database.getFriendId(id);
         }
 
         private void closing(object sender, FormClosingEventArgs e)
