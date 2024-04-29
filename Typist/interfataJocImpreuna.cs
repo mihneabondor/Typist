@@ -21,9 +21,10 @@ namespace Typist
         private void timer2_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
+            Console.WriteLine(WebsocketService.incomingText);
             if (WebsocketService.incomingText.Contains('\n'))
             {
-                timer2.Stop();
+                //timer2.Stop();
                 //sync
                 string[] detailsText = WebsocketService.incomingText.Split('\n');
 
@@ -35,9 +36,9 @@ namespace Typist
 
                 this.Visible = false;
                 veziRezultate veziRezultate = new veziRezultate(false, "impreuna");
-                veziRezultate.ShowDialog();
-            } else
-            {
+                //veziRezultate.ShowDialog();
+            }
+            //{
                 DataTable dt = Database.getDetails(hostId);
 
                 string text = "";
@@ -47,8 +48,7 @@ namespace Typist
                 WebsocketService.outgoingText = text;
                 WebsocketService.sendMessage();
                 WebsocketService.sendFromServer(text);
-                Console.WriteLine(WebsocketService.incomingText);
-            }
+            //}
         }
 
         bool gata = false;
@@ -153,7 +153,7 @@ namespace Typist
                 }
             }
 
-            if (gata || timp == 0)
+            if (gata || timp <= 0)
             {
                 timer1.Stop();
                 timer2.Start();
