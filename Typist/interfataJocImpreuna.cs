@@ -17,13 +17,15 @@ namespace Typist
     {
         int timp, timpMaxim, nrCuvinte, nrGreseli, nrCuvinteMaxim, hostId, guestId;
         string text, userText = "";
+        bool detaliiCreate = false;
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
             Console.WriteLine(WebsocketService.incomingText);
-            if (WebsocketService.incomingText.Contains('\n'))
+            if (WebsocketService.incomingText.Contains('\n') && !detaliiCreate)
             {
+                detaliiCreate = true;
                 //timer2.Stop();
                 //sync
                 string[] detailsText = WebsocketService.incomingText.Split('\n');
