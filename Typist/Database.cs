@@ -71,6 +71,7 @@ namespace Typist
             Jucatori.createUser(username);
         }
 
+        //rezolva aici - mihnea din trecut
         public static void createGame(int timp, string modJoc, string username, int nrCuvinte, bool cuvinte, bool numar, bool punctatie)
         {
             Jocuri.createGame(timp, modJoc);
@@ -81,9 +82,11 @@ namespace Typist
             for(int i = 0; i < nrCuvinte; i++)
             {
                 Random rand = new Random();
-                int id = rand.Next(1, Convert.ToInt32(Cuvinte.getWordCount()) - 1);
+
+                int id = 1;
+                id = rand.Next(1, 16);
                 while (Cuvinte.getType(id).ToString().Trim() != "cuvant" || cuvinteFolosite.Contains(id))
-                    id = rand.Next(1, Convert.ToInt32(Cuvinte.getWordCount()));
+                    id = rand.Next(1, 16);
 
                 Intersectie.createGameWordRelation(Convert.ToInt32(Jocuri.getLatestGameId()), id);
                 cuvinteFolosite.Add(id);
@@ -92,15 +95,17 @@ namespace Typist
 
                 if(id % 3 == 0 && punctatie)
                 {
-                    while (Cuvinte.getType(id).ToString().Trim() == "punctatie")
-                        id = rand.Next(1, Convert.ToInt32(Cuvinte.getPunctuationCount()));
+                    id = rand.Next(28, 35);
+                    while (!Cuvinte.getType(id).ToString().Trim().Equals("punctatie"))
+                        id = rand.Next(28, 35);
                     Intersectie.createGameWordRelation(Convert.ToInt32(Jocuri.getLatestGameId()), id);
                 }
 
                 if(id % 2 == 0 && numar)
                 {
-                    while (Cuvinte.getType(id).ToString().Trim() == "numar")
-                        id = rand.Next(1, Convert.ToInt32(Cuvinte.getNumberCount()));
+                    id = rand.Next(17, 27);
+                    while (!Cuvinte.getType(id).ToString().Trim().Equals("numar"))
+                        id = rand.Next(17, 27);
                     Intersectie.createGameWordRelation(Convert.ToInt32(Jocuri.getLatestGameId()), id);
                 }
             }

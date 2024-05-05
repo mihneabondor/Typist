@@ -83,5 +83,10 @@ namespace Typist
                 userStatusLabel.Text = "Cont creat";
             }
         }
+
+        private void cuvinteCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            cuvinteCheckBox.Checked = true;
+        }
     }
 }

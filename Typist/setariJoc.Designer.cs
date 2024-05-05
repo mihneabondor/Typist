@@ -179,6 +179,7 @@ namespace Typist
             this.cuvinteCheckBox.TabIndex = 0;
             this.cuvinteCheckBox.Text = "Cuvinte";
             this.cuvinteCheckBox.UseVisualStyleBackColor = true;
+            this.cuvinteCheckBox.CheckedChanged += new System.EventHandler(this.cuvinteCheckBox_CheckedChanged);
             // 
             // numeUtilizator
             // 
@@ -258,6 +259,7 @@ namespace Typist
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numarCuvinteSlider);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "setariJoc";
             this.Text = "Configureaza jocul";
