@@ -63,6 +63,8 @@ namespace Typist
 
             if (gata || timp == 0) {
                 Thread.Sleep(3000);
+
+                Database.updatePunctaj();
                 timer1.Stop();
 
                 this.Visible = false;

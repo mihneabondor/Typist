@@ -196,8 +196,8 @@ namespace Typist
                 id = Convert.ToInt32(Jocuri.getLatestGameId());
 
             if (userId == -1)
-                return Convert.ToInt32(Detalii.getAccuracy(id, null));
-            return Convert.ToInt32(Detalii.getAccuracy(id, userId));
+                return Convert.ToInt32(Detalii.getAccuracy(id, null)) == 0 ? 100 : Convert.ToInt32(Detalii.getAccuracy(id, null));
+            return Convert.ToInt32(Detalii.getAccuracy(id, userId)) == 0 ? 100 : Convert.ToInt32(Detalii.getAccuracy(id, userId));
         }
 
         public static string getGameOptionsString(int id = -1)
@@ -277,6 +277,12 @@ namespace Typist
             DataTable dt = ds.Evidenta;
 
             return (Convert.ToInt32(dt.Rows[0]["Id"]), Convert.ToInt32(dt.Rows[1]["Id"]));
+        }
+
+        public static void updatePunctaj()
+        {
+            int id = Convert.ToInt32(Jocuri.getLatestGameId());
+            Jocuri.UpdatePunctaj(Convert.ToInt32(Jocuri.getTime(id)) - getMaxTime(id), id, id);
         }
     }
 }
