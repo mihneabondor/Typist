@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="52" ViewPortY="62" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Cuvinte" ZOrder="9" X="1121" Y="734" Height="210" Width="189" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
-    <Shape ID="DesignTable:Detalii" ZOrder="1" X="727" Y="80" Height="266" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="25" SplitterPosition="140" />
+    <Shape ID="DesignTable:Detalii" ZOrder="1" X="727" Y="80" Height="363" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="25" SplitterPosition="140" />
     <Shape ID="DesignTable:Evidenta" ZOrder="7" X="335" Y="426" Height="191" Width="297" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
     <Shape ID="DesignTable:Intersectie" ZOrder="4" X="697" Y="741" Height="191" Width="294" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="83" />
     <Shape ID="DesignTable:Jocuri" ZOrder="6" X="727" Y="416" Height="247" Width="264" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="25" SplitterPosition="121" />
@@ -41,12 +41,16 @@
     <Connector ID="DesignRelation:Jocuri_Detalii" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>871</X>
-          <Y>416</Y>
+          <X>991</X>
+          <Y>460</Y>
         </Point>
         <Point>
-          <X>871</X>
-          <Y>346</Y>
+          <X>1008</X>
+          <Y>460</Y>
+        </Point>
+        <Point>
+          <X>1008</X>
+          <Y>443</Y>
         </Point>
       </RoutePoints>
     </Connector>

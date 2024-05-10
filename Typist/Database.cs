@@ -103,9 +103,9 @@ namespace Typist
 
                 if(id % 2 == 0 && numar)
                 {
-                    id = rand.Next(17, 27);
+                    id = rand.Next(17, 26);
                     while (!Cuvinte.getType(id).ToString().Trim().Equals("numar"))
-                        id = rand.Next(17, 27);
+                        id = rand.Next(17, 26);
                     Intersectie.createGameWordRelation(Convert.ToInt32(Jocuri.getLatestGameId()), id);
                 }
             }
@@ -196,8 +196,8 @@ namespace Typist
                 id = Convert.ToInt32(Jocuri.getLatestGameId());
 
             if (userId == -1)
-                return Convert.ToInt32(Detalii.getAccuracy(id, null)) == 0 ? 100 : Convert.ToInt32(Detalii.getAccuracy(id, null));
-            return Convert.ToInt32(Detalii.getAccuracy(id, userId)) == 0 ? 100 : Convert.ToInt32(Detalii.getAccuracy(id, userId));
+                return 100 - Convert.ToInt32(Detalii.getAccuracy(id, null));
+            return 100 - Convert.ToInt32(Detalii.getAccuracy(id, userId));
         }
 
         public static string getGameOptionsString(int id = -1)

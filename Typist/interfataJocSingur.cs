@@ -57,7 +57,7 @@ namespace Typist
                 if (timp == 0)
                 {
                     textbox.ReadOnly = true;
-                    MessageBox.Show("timpul a expirat");
+                    //MessageBox.Show("timpul a expirat");
                 }
             }
 
@@ -136,7 +136,7 @@ namespace Typist
             userText = "";
             
             if(text.Length == 0){
-                MessageBox.Show("gata");
+                //MessageBox.Show("gata");
                 gata = true;
             }
         }
