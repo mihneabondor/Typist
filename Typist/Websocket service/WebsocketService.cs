@@ -64,7 +64,6 @@ namespace Typist
                 }
             }
             cryptedAddress = crypt(address);
-            //host();
         }
 
         private static string crypt(string s)

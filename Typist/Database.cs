@@ -71,7 +71,6 @@ namespace Typist
             Jucatori.createUser(username);
         }
 
-        //rezolva aici - mihnea din trecut
         public static void createGame(int timp, string modJoc, string username, int nrCuvinte, bool cuvinte, bool numar, bool punctatie)
         {
             Jocuri.createGame(timp, modJoc);
