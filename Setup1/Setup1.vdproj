@@ -27,8 +27,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C0F71BC38C4B33A6D9CF63AC5A19B3E6"
+        "MsmKey" = "8:_C272BBB4C40D8961869A089ADCB366EA"
         "OwnerKey" = "8:_0CA814923DD94391ADB9C54770665E58"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CB0CEEF63C5F41869E019BB143DCED00"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,19 +46,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DCDABA3CA64820BD497F2D7CBA5E8A9B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0CA814923DD94391ADB9C54770665E58"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C0F71BC38C4B33A6D9CF63AC5A19B3E6"
+        "OwnerKey" = "8:_C272BBB4C40D8961869A089ADCB366EA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DCDABA3CA64820BD497F2D7CBA5E8A9B"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -73,6 +79,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.SqlLocalDB.15.0"
+                    {
+                    "Name" = "8:SQL Server 2019 Express LocalDB"
+                    "ProductCode" = "8:Microsoft.SqlServer.SqlLocalDB.15.0"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -89,6 +116,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -138,14 +181,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C0F71BC38C4B33A6D9CF63AC5A19B3E6"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C272BBB4C40D8961869A089ADCB366EA"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:websocket-sharp, Version=1.0.2.32519, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C0F71BC38C4B33A6D9CF63AC5A19B3E6"
+                    "_C272BBB4C40D8961869A089ADCB366EA"
                     {
                     "Name" = "8:websocket-sharp.dll"
                     "Attributes" = "3:512"
@@ -167,6 +210,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB0CEEF63C5F41869E019BB143DCED00"
+            {
+            "SourcePath" = "8:..\\Typist\\Resurse\\script_typewriter_hyphen_screenplay_cinema_icon_190865.ico"
+            "TargetName" = "8:script_typewriter_hyphen_screenplay_cinema_icon_190865.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_58E3800B2BED4560B1E7841CBAAD25DB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DCDABA3CA64820BD497F2D7CBA5E8A9B"
@@ -388,7 +451,7 @@
             "Target" = "8:_0CA814923DD94391ADB9C54770665E58"
             "Folder" = "8:_1AB6EE3BAB1A4D34ACC511AE624E9058"
             "WorkingFolder" = "8:_58E3800B2BED4560B1E7841CBAAD25DB"
-            "Icon" = "8:"
+            "Icon" = "8:_CB0CEEF63C5F41869E019BB143DCED00"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CCF2457A9E184131B3CE4F25A9F36A5A"
@@ -402,7 +465,7 @@
             "Target" = "8:_0CA814923DD94391ADB9C54770665E58"
             "Folder" = "8:_B414E8CF013A4B37927362B04A074851"
             "WorkingFolder" = "8:_58E3800B2BED4560B1E7841CBAAD25DB"
-            "Icon" = "8:"
+            "Icon" = "8:_CB0CEEF63C5F41869E019BB143DCED00"
             "Feature" = "8:"
             }
         }

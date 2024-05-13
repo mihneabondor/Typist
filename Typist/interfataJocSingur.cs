@@ -99,7 +99,7 @@ namespace Typist
 
         private void textbox_TextChanged(object sender, EventArgs e)
         {
-            if (timp % 5 == 0) timer1.Start();
+            timer1.Start();
 
             int slct = textbox.SelectionStart;
             if (slct != 0 && textbox.Text[slct - 1] == textbox.Text[slct])
